@@ -172,6 +172,13 @@ def main():
                 door.append(item)
         # 'gesampled door': uit de kern eerst, dan het meest uitgebrachte; mash-ups van hobbyisten vallen grotendeels weg
         door.sort(key=lambda d: (not d["slug"], -d["releases"]))
+        # één keer per nummer, ook als MusicBrainz er meerdere opnames van kent
+        gezien, uniek = set(), []
+        for d in door:
+            sleutel = d["slug"] or re.sub(r"\W", "", (d["artiest"] + d["titel"]).lower())
+            if sleutel not in gezien:
+                gezien.add(sleutel); uniek.append(d)
+        door = uniek
         disc = r.get("discogs") or {}
         it = r.get("itunes")
         nummers.append({
@@ -197,6 +204,7 @@ def main():
             doel = per_slug.get(s.get("slug"))
             if doel and not any(d.get("slug") == x["slug"] for d in doel["gesampled_door"]):
                 doel["gesampled_door"].insert(0, {"titel": x["titel"], "artiest": x["artiest"], "jaar": x["jaar"], "slug": x["slug"], "type": s["type"]})
+                doel["gesampled_door_totaal"] = max(doel["gesampled_door_totaal"], len(doel["gesampled_door"]))
     instrumenten = [{"key": k, "nl": nl, "lidwoord": lw, "groep": g, "nummers": sorted(set(gebruik.get(k, [])))}
                     for k, (nl, lw, g) in INSTRUMENTEN.items() if gebruik.get(k)]
     UIT.mkdir(parents=True, exist_ok=True)
