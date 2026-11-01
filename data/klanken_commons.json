@@ -1,0 +1,9 @@
+{
+ "_uitleg": "Klanken van Wikimedia Commons voor instrumenten die niet in de Iowa-collectie zitten. 'zoek': zoektermen (bestanden met geluid). 'bestand': een gekozen bestand op Commons; dat gaat voor. 'start': waar het fragment begint (seconden).",
+ "drumstel": {"zoek": ["drum kit beat", "drum set groove", "drums rock beat"]},
+ "kleine-trom": {"zoek": ["snare drum", "snare drum roll"]},
+ "basgitaar": {"zoek": ["bass guitar", "electric bass riff"]},
+ "elektrische-gitaar": {"zoek": ["electric guitar riff", "electric guitar"]},
+ "synthesizer": {"zoek": ["analog synthesizer", "synthesizer sound", "Moog synthesizer"]},
+ "drumcomputer": {"zoek": ["Roland TR-808", "drum machine beat", "Roland TR-909"]}
+}

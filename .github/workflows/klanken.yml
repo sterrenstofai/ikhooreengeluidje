@@ -1,0 +1,30 @@
+name: Klanken van Commons
+
+# Zoekt en downloadt klanken van Wikimedia Commons voor instrumenten die niet in de
+# Iowa-collectie zitten, en commit ze in site/klanken. Handmatig te starten.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  klanken:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+      - name: Klanken ophalen
+        run: python3 scripts/klanken_commons.py
+      - name: Committen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/klanken site/data/klanken.json data/klanken_kandidaten.json
+          git diff --cached --quiet || git commit -m "Klanken van Commons bijgewerkt"
+          git pull --rebase origin main
+          git push
