@@ -46,7 +46,11 @@ def info(bestand):
     m = ii.get("extmetadata", {})
     tekst = lambda k: html.unescape(re.sub(r"<[^>]+>", "", m.get(k, {}).get("value", ""))).strip().split("\n")[0].strip()
     return {"bestand": bestand, "thumb": ii.get("thumburl") or ii["url"], "pagina": ii["descriptionurl"],
-            "licentie": tekst("LicenseShortName"), "maker": tekst("Artist")[:120] or "onbekend"}
+            "licentie": tekst("LicenseShortName"), "maker": maker_van(tekst("Artist")[:120])}
+
+def maker_van(t):
+    """Commons zegt soms alleen 'No machine-readable author provided'; de naam staat dan op de bestandspagina."""
+    return "maker: zie de bestandspagina" if not t or t.lower().startswith("no machine-readable") else t
 
 def main():
     bronnen = {k: v for k, v in json.loads((ROOT / "data" / "foto_bronnen.json").read_text()).items() if not k.startswith("_")}

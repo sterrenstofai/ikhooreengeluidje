@@ -45,7 +45,7 @@ const SPEEL = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11
 const fragment = (n, geheim = false) => ({ id: n.slug, titel: n.titel, artiest: n.artiest, url: n.preview.url, hoes: n.preview.hoes, geheim });
 const klank = (D, key) => D.klanken[key] && { id: `klank:${key}`, titel: key, artiest: "", url: D.klanken[key].pad, eigen: true };
 const fotoImg = (D, key) => D.fotos[key] ? `<img src="${D.fotos[key].pad}" alt="" loading="lazy">` : "";
-const NAMEN = { piano: "de piano", gitaar: "de gitaar", viool: "de viool", trompet: "de trompet", dwarsfluit: "de fluit", tamboerijn: "de tamboerijn", saxofoon: "de saxofoon", cello: "de cello", trombone: "de trombone", klarinet: "de klarinet", contrabas: "de contrabas", hoorn: "de hoorn", hobo: "de hobo", fagot: "de fagot", altviool: "de altviool" };
+const NAMEN = { drumstel: "het drumstel", basgitaar: "de basgitaar", "elektrische-gitaar": "de elektrische gitaar", synthesizer: "de synthesizer", piano: "de piano", gitaar: "de gitaar", viool: "de viool", trompet: "de trompet", dwarsfluit: "de fluit", tamboerijn: "de tamboerijn", saxofoon: "de saxofoon", cello: "de cello", trombone: "de trombone", klarinet: "de klarinet", contrabas: "de contrabas", hoorn: "de hoorn", hobo: "de hobo", fagot: "de fagot", altviool: "de altviool" };
 
 /* ---------- Overzicht ---------- */
 

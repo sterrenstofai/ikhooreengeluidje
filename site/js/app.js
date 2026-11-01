@@ -401,9 +401,11 @@ function instrumentPagina(D, key) {
     ${etiket(GROEPEN[i.groep])}
     <h1 class="index-kop">${esc(hoofd)}</h1>
     ${foto(D, key)}
+    ${D.klanken?.[key] ? `<p class="instr-klank"><button class="knop-pil knop-accent" type="button" data-klank="${key}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z" fill="currentColor"/></svg>Hoe klinkt ${esc(i.lidwoord)} ${esc(i.nl)}?</button><span class="zacht">Geluid: ${D.klanken[key].licentie ? `${esc(D.klanken[key].maker.slice(0, 50))}, <a href="${esc(D.klanken[key].bron_url)}" rel="noopener">${esc(D.klanken[key].licentie)}</a>, via Wikimedia Commons` : `<a href="${esc(D.klanken[key].bron_url)}" rel="noopener">University of Iowa Musical Instrument Samples</a>`}</span></p>` : ""}
     <p class="held-sub">In ${nummers.length === 1 ? "dit nummer" : `deze ${nummers.length} nummers`} hoor je ${esc(i.lidwoord)} ${esc(i.nl)}.</p>
     <div class="raster nummers">${nummers.map(kaart).join("")}</div>
   </section>`;
+  app.querySelector("[data-klank]")?.addEventListener("click", () => G.speel({ id: `klank:${key}`, titel: i.nl, artiest: "Zo klinkt het", url: D.klanken[key].pad, eigen: true }));
 }
 
 /* ---------- Kop: zoeken ---------- */

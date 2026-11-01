@@ -690,3 +690,5 @@ a.sample-naam:hover strong { text-decoration: underline; }
 .oz-logboek .knop-pil { white-space: normal; text-align: left; line-height: 1.25; max-width: 100%; }
 .oz-drum-stappen { gap: .25rem; }
 .oz-stap { min-height: 0; min-width: 0; }
+.instr-klank { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; margin: 1.2rem 0 0; }
+.instr-klank .zacht { font: 400 .78rem/1.4 var(--ui); }

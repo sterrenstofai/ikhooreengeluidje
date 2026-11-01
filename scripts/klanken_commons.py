@@ -45,7 +45,7 @@ def info(titels):
         m = ii.get("extmetadata", {})
         lengte = next((x["value"] for x in ii.get("metadata") or [] if x["name"] in ("length", "playtime_seconds")), None)
         uit.append({"bestand": p["title"].removeprefix("File:"), "url": ii["url"], "pagina": ii["descriptionurl"],
-                    "licentie": tekst(m, "LicenseShortName"), "maker": tekst(m, "Artist")[:120] or "onbekend",
+                    "licentie": tekst(m, "LicenseShortName"), "maker": maker_van(tekst(m, "Artist")[:120]),
                     "omschrijving": tekst(m, "ImageDescription")[:200], "lengte": float(lengte) if lengte else None})
     return uit
 
@@ -61,6 +61,10 @@ def zoek(termen):
     vrij = [k for k in uit if VRIJ.search(k["licentie"]) and not k["bestand"].startswith("LL-") and not k["bestand"].lower().endswith((".mid", ".midi"))]
     vrij.sort(key=lambda k: (k["lengte"] is None, (k["lengte"] or 0) > 60, k["lengte"] or 0))
     return vrij
+
+def maker_van(t):
+    """Commons zegt soms alleen 'No machine-readable author provided'; de naam staat dan op de bestandspagina."""
+    return "maker: zie de bestandspagina" if not t or t.lower().startswith("no machine-readable") else t
 
 def main():
     bronnen = {k: v for k, v in json.loads((ROOT / "data" / "klanken_commons.json").read_text()).items() if not k.startswith("_")}

@@ -9,7 +9,9 @@ let opruimen = null;
 
 // Volgorde: eerst wat een kind al kent, dan de rest van het orkest
 const LIJST = [
-  ["piano", "de piano"], ["gitaar", "de gitaar"], ["viool", "de viool"], ["trompet", "de trompet"],
+  ["drumstel", "het drumstel"], ["piano", "de piano"], ["gitaar", "de gitaar"], ["viool", "de viool"], ["trompet", "de trompet"],
+  ["basgitaar", "de basgitaar"], ["elektrische-gitaar", "de elektrische gitaar"], ["synthesizer", "de synthesizer"],
+  ["drumcomputer", "de drumcomputer"], ["kleine-trom", "de kleine trom"],
   ["dwarsfluit", "de fluit"], ["tamboerijn", "de tamboerijn"], ["saxofoon", "de saxofoon"], ["cello", "de cello"],
   ["trombone", "de trombone"], ["klarinet", "de klarinet"], ["contrabas", "de contrabas"], ["hoorn", "de hoorn"],
   ["hobo", "de hobo"], ["fagot", "de fagot"], ["altviool", "de altviool"],
@@ -112,7 +114,9 @@ export function kinderPagina(app, fotos, klanken) {
     img.classList.remove("kids-in"); void img.offsetWidth; img.classList.add("kids-in");
     img.src = s.foto.pad;
     plaatKnop.setAttribute("aria-label", `${s.naam}. Tik om de naam te horen.`);
-    bron.innerHTML = `Foto: ${esc(s.foto.maker.length > 40 ? s.foto.maker.slice(0, 38) + "…" : s.foto.maker)}, <a href="${esc(s.foto.pagina)}" rel="noopener">${esc(s.foto.licentie)}</a>. Geluid: University of Iowa.`;
+    const kort = (t) => esc(t.length > 40 ? t.slice(0, 38) + "…" : t);
+    const geluid = s.klank.licentie ? `Geluid: ${kort(s.klank.maker)}, <a href="${esc(s.klank.bron_url)}" rel="noopener">${esc(s.klank.licentie)}</a>` : "Geluid: University of Iowa";
+    bron.innerHTML = `Foto: ${kort(s.foto.maker)}, <a href="${esc(s.foto.pagina)}" rel="noopener">${esc(s.foto.licentie)}</a>. ${geluid}.`;
     ballon.classList.remove("zichtbaar");
     wrap.querySelectorAll(".kids-duim").forEach((d) => d.toggleAttribute("aria-current", +d.dataset.i === i));
     const duim = wrap.querySelector(`.kids-duim[data-i="${i}"]`);
