@@ -201,19 +201,19 @@
   "pad": "/klanken/drumstel.mp3",
   "duur": 5.0,
   "bron": "Wikimedia Commons",
-  "bron_url": "https://commons.wikimedia.org/wiki/File:LL-Q35650_(ken)-Akopoly-b%C3%A1%C5%8B_(to_gallop).wav",
-  "bestand": "LL-Q35650 (ken)-Akopoly-báŋ (to gallop).wav",
-  "licentie": "CC BY-SA 4.0",
-  "maker": "Speaker: Akopoly"
+  "bron_url": "https://commons.wikimedia.org/wiki/File:Rock_beat_ride_cymbal.ogg",
+  "bestand": "Rock beat ride cymbal.ogg",
+  "licentie": "CC BY-SA 3.0",
+  "maker": "No machine-readable author provided. Clngre~commonswiki assumed (based on copyright claims)."
  },
  "basgitaar": {
   "pad": "/klanken/basgitaar.mp3",
   "duur": 5.0,
   "bron": "Wikimedia Commons",
-  "bron_url": "https://commons.wikimedia.org/wiki/File:Four_feel_walking_bass_B.ogg",
-  "bestand": "Four feel walking bass B.ogg",
-  "licentie": "CC BY 3.0",
-  "maker": "Serolillo"
+  "bron_url": "https://commons.wikimedia.org/wiki/File:Bassline_played_on_a_bass_guitar_using_a_pick.ogg",
+  "bestand": "Bassline played on a bass guitar using a pick.ogg",
+  "licentie": "CC BY-SA 4.0",
+  "maker": "OVRDRIVN32"
  },
  "elektrische-gitaar": {
   "pad": "/klanken/elektrische-gitaar.mp3",
@@ -228,18 +228,27 @@
   "pad": "/klanken/synthesizer.mp3",
   "duur": 5.0,
   "bron": "Wikimedia Commons",
-  "bron_url": "https://commons.wikimedia.org/wiki/File:LL-Q188_(deu)-WangleLine-Analog-Synthesizer.wav",
-  "bestand": "LL-Q188 (deu)-WangleLine-Analog-Synthesizer.wav",
-  "licentie": "CC BY 4.0",
-  "maker": "Speaker: WangleLine"
+  "bron_url": "https://commons.wikimedia.org/wiki/File:Synth_filter_sweeps.ogg",
+  "bestand": "Synth filter sweeps.ogg",
+  "licentie": "Public domain",
+  "maker": "No machine-readable author provided. Syblex~commonswiki assumed (based on copyright claims)."
  },
  "drumcomputer": {
   "pad": "/klanken/drumcomputer.mp3",
   "duur": 5.0,
   "bron": "Wikimedia Commons",
-  "bron_url": "https://commons.wikimedia.org/wiki/File:Brummdose.ogg",
-  "bestand": "Brummdose.ogg",
-  "licentie": "Public domain",
-  "maker": "Achates"
+  "bron_url": "https://commons.wikimedia.org/wiki/File:RelaxedElectro@100BPM.wav",
+  "bestand": "RelaxedElectro@100BPM.wav",
+  "licentie": "CC BY-SA 3.0",
+  "maker": "Wil Sinclair"
+ },
+ "kleine-trom": {
+  "pad": "/klanken/kleine-trom.mp3",
+  "duur": 5.0,
+  "bron": "Wikimedia Commons",
+  "bron_url": "https://commons.wikimedia.org/wiki/File:Snare_drum_unmuffled.ogg",
+  "bestand": "Snare drum unmuffled.ogg",
+  "licentie": "CC BY-SA 3.0",
+  "maker": "No machine-readable author provided. Clngre~commonswiki assumed (based on copyright claims)."
  }
 }
