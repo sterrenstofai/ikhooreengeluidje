@@ -16,7 +16,12 @@ async function haal(url, mb = false) {
     laatsteMb = nu + tijd;
     if (tijd) await wacht(tijd);
   }
-  const r = await fetch(url, { referrerPolicy: "no-referrer" });
+  let r;
+  for (let poging = 0; poging < 3; poging++) {
+    r = await fetch(url, { referrerPolicy: "no-referrer" });
+    if (r.status !== 503 && r.status !== 429) break;
+    await wacht(2000 * (poging + 1)); // MusicBrainz is druk: even wachten en opnieuw
+  }
   if (!r.ok) throw new Error(`${r.status}`);
   const d = await r.json();
   try { sessionStorage.setItem(sleutel, JSON.stringify(d)); } catch {}
@@ -90,7 +95,7 @@ const PRODUCTIE = [[/producer/i, "productie"], [/mix/i, "mix"], [/engineer|recor
 const artiestVan = (r) => (r["artist-credit"] || []).map((c) => c.name + (c.joinphrase || "")).join("");
 
 // Maakt een nummer in dezelfde vorm als site/data/nummers.json
-export function maakNummer(track, rec, kernPerMb) {
+export function maakNummer(track, rec, kernPerMb, mbFout = false) {
   const spel = new Map(), prod = {};
   for (const x of rec?.relations || []) {
     if (x["target-type"] !== "artist") continue;
@@ -116,7 +121,7 @@ export function maakNummer(track, rec, kernPerMb) {
     apparaten: [], weetjes: [], samples_erin: erin, gesampled_door: door.slice(0, 10), gesampled_door_totaal: door.length,
     isrc: rec?.isrcs?.[0] || null,
     bronnen: { musicbrainz: rec ? `https://musicbrainz.org/recording/${rec.id}` : null },
-    mbId: rec?.id || null,
+    mbId: rec?.id || null, mbFout,
     preview: { url: track.previewUrl, winkel: track.trackViewUrl, hoes: track.artworkUrl100.replace("100x100bb", "600x600bb"), hoes_klein: track.artworkUrl100.replace("100x100bb", "200x200bb"), van: `${track.artistName}, ${track.trackName} (${track.collectionName})` },
   };
 }

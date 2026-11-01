@@ -306,11 +306,11 @@ function toonNummer(D, n) {
     n.album ? ["Album", `<span class="cursief">${esc(n.album)}</span>`] : null,
     prod.productie ? ["Productie", esc(prod.productie.join(", "))] : null,
     ["Status", n.nagekeken ? `<span class="label">nagekeken</span>` : `<span class="label label-zacht">niet nagekeken</span>`],
-    n.gevonden ? ["Bron", `Gevonden via iTunes${n.mbId ? ` en <a href="${esc(n.bronnen.musicbrainz)}" rel="noopener">MusicBrainz</a>` : "; niet gevonden in MusicBrainz"}`] : null,
+    n.gevonden ? ["Bron", `Gevonden via iTunes${n.mbId ? ` en <a href="${esc(n.bronnen.musicbrainz)}" rel="noopener">MusicBrainz</a>` : n.mbFout ? "; MusicBrainz gaf nu geen antwoord" : "; niet gevonden in MusicBrainz"}`] : null,
   ].filter(Boolean);
   const startTab = "sporen";
   app.innerHTML = `
-  ${n.gevonden ? `<p class="gevonden-balk breed"><span class="label label-zacht">niet nagekeken</span> Dit nummer staat niet in onze lijst. Wat je hier ziet, komt rechtstreeks uit MusicBrainz en iTunes. Credits kunnen ontbreken of fout zijn.</p>` : ""}
+  ${n.gevonden ? `<p class="gevonden-balk breed"><span class="label label-zacht">niet nagekeken</span> ${n.mbFout ? `MusicBrainz is nu even niet bereikbaar, dus de credits en samples ontbreken. <a href="${location.pathname}" data-herlaad>Probeer het opnieuw</a>.` : "Dit nummer staat niet in onze lijst. Wat je hier ziet, komt rechtstreeks uit MusicBrainz en iTunes. Credits kunnen ontbreken of fout zijn."}</p>` : ""}
   <section class="scherm" data-nummer="${n.slug}">
     <div class="podium">
       ${TABS.map(([k]) => `<div class="podium-paneel paneel-${k}" id="paneel-${k}" role="tabpanel" aria-labelledby="tab-${k}" ${k === startTab ? "" : "hidden"}>${paneel(D, n, k)}</div>`).join("")}
@@ -376,7 +376,7 @@ function paneelInstrumenten(D, n) {
     ${app_ ? `${etiket("Apparaten, met de hand nagekeken")}<ul class="apparaten">${app_}</ul>` : ""}
     ${rijen ? `${etiket("Wie speelt wat")}<ul class="credits">${rijen}</ul>
       <p class="noot zacht">MB = MusicBrainz, D = Discogs. Credits uit een database kunnen onvolledig zijn, en dezelfde muzikant staat soms onder twee namen.</p>` : ""}
-    ${leeg ? `<div class="leeg-blok"><p class="leeg-kop">Nog niemand bekend</p><p>MusicBrainz en Discogs weten nog niet wie wat speelt op dit nummer. Bij nieuwe nummers is dat vaak zo: die worden thuis of in een kleine studio gemaakt en de credits komen later, of nooit.</p></div>` : ""}
+    ${leeg ? `<div class="leeg-blok"><p class="leeg-kop">Nog niemand bekend</p><p>${n.mbFout ? "MusicBrainz gaf nu geen antwoord, dus we weten het niet. Probeer het over een minuut opnieuw." : `${n.gevonden ? "MusicBrainz weet" : "MusicBrainz en Discogs weten"} nog niet wie wat speelt op dit nummer. Bij nieuwe nummers is dat vaak zo: die worden thuis of in een kleine studio gemaakt en de credits komen later, of nooit.`}</p></div>` : ""}
   </div>`;
 }
 
@@ -541,12 +541,13 @@ async function gevondenPagina(D, trackId) {
     const Z = await import("./mbzoek.js");
     const track = await Z.itunesTrack(trackId);
     if (!track) return nietGevonden();
-    const rec = await Z.mbOpname(Z.schoneTitel(track.trackName), Z.hoofdArtiest(track.artistName)).catch(() => null);
+    let mbFout = false;
+    const rec = await Z.mbOpname(Z.schoneTitel(track.trackName), Z.hoofdArtiest(track.artistName)).catch(() => { mbFout = true; return null; });
     // staat dit nummer in onze eigen lijst? Dan daarheen: die pagina is nagekeken
     const kernPerMb = Object.fromEntries(D.nummers.filter((n) => n.bronnen?.musicbrainz).map((n) => [n.bronnen.musicbrainz.split("/").pop(), n.slug]));
     if (rec && kernPerMb[rec.id]) return naar(`/nummer/${kernPerMb[rec.id]}`, true);
     if (!location.pathname.endsWith(trackId)) return; // intussen weggeklikt
-    const n = Z.maakNummer(track, rec, kernPerMb);
+    const n = Z.maakNummer(track, rec, kernPerMb, mbFout);
     D.perSlug[n.slug] = n; // zodat speler en geluidsbeeld hem kennen
     toonNummer(D, n);
   } catch (e) {

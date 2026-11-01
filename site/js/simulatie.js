@@ -146,7 +146,9 @@ export function banen(nummer, instrumenten) {
 export function simulatie(el, nummer, instrumenten, tempo) {
   const lijst = banen(nummer, instrumenten);
   if (!lijst.length) {
-    el.innerHTML = `<div class="leeg-blok"><p class="leeg-kop">Nog geen instrumenten bekend</p><p>Voor dit nummer weten MusicBrainz en Discogs nog niet welke instrumenten erin zitten. Zonder die lijst laten we liever niets zien dan iets te verzinnen.</p></div>`;
+    el.innerHTML = nummer.mbFout
+      ? `<div class="leeg-blok"><p class="leeg-kop">MusicBrainz geeft nu geen antwoord</p><p>Daarom weten we niet welke instrumenten erin zitten. Probeer het over een minuut opnieuw.</p></div>`
+      : `<div class="leeg-blok"><p class="leeg-kop">Nog geen instrumenten bekend</p><p>Voor dit nummer ${nummer.gevonden ? "weet MusicBrainz" : "weten MusicBrainz en Discogs"} nog niet welke instrumenten erin zitten. Zonder die lijst laten we liever niets zien dan iets te verzinnen.</p></div>`;
     return () => {};
   }
   const r = toeval(nummer.slug), akk = akkoorden(r), vier = VIER_OP_DE_VLOER.has(nummer.slug);
