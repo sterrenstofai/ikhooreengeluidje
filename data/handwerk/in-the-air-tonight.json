@@ -1,0 +1,22 @@
+{
+ "apparaten": [
+  {
+   "naam": "Roland CR-78",
+   "soort": "drumcomputer",
+   "wat": "Het tikkende ritme vanaf het begin.",
+   "bron": "https://en.wikipedia.org/wiki/In_the_Air_Tonight"
+  },
+  {
+   "naam": "Sequential Circuits Prophet-5",
+   "soort": "synthesizer",
+   "wat": "De donkere akkoorden onder de zang.",
+   "bron": "https://en.wikipedia.org/wiki/In_the_Air_Tonight"
+  }
+ ],
+ "weetjes": [
+  {
+   "tekst": "De drums komen pas na ruim drie minuten binnen, met de beroemde roffel. Het geluid heet 'gated reverb': een harde galm die abrupt wordt afgekapt.",
+   "bron": "https://en.wikipedia.org/wiki/Gated_reverb"
+  }
+ ]
+}

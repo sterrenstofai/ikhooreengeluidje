@@ -1,0 +1,16 @@
+{
+ "apparaten": [
+  {
+   "naam": "Moog-synthesizer",
+   "soort": "synthesizer",
+   "wat": "Bijna alle muziek, behalve de zang en een basdrum, komt uit een Moog-synthesizer.",
+   "bron": "https://en.wikipedia.org/wiki/I_Feel_Love"
+  }
+ ],
+ "weetjes": [
+  {
+   "tekst": "Gemaakt door Giorgio Moroder. Een van de eerste hits die bijna helemaal elektronisch is.",
+   "bron": "https://en.wikipedia.org/wiki/I_Feel_Love"
+  }
+ ]
+}

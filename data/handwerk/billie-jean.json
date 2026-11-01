@@ -1,0 +1,16 @@
+{
+ "apparaten": [
+  {
+   "naam": "LinnDrum",
+   "soort": "drumcomputer",
+   "wat": "Het strakke drumritme.",
+   "bron": "https://en.wikipedia.org/wiki/Billie_Jean"
+  }
+ ],
+ "weetjes": [
+  {
+   "tekst": "De bekende baslijn speelt bijna het hele nummer door, steeds hetzelfde patroon.",
+   "bron": "https://en.wikipedia.org/wiki/Billie_Jean"
+  }
+ ]
+}

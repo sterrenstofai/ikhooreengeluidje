@@ -1,0 +1,34 @@
+{
+ "apparaten": [],
+ "weetjes": [
+  {
+   "tekst": "Een kleine trom speelt van begin tot eind hetzelfde ritme.",
+   "bron": "https://en.wikipedia.org/wiki/Bol%C3%A9ro"
+  },
+  {
+   "tekst": "Er zijn maar twee melodieën. Ze komen steeds terug, telkens met andere instrumenten, en het wordt steeds harder. De dwarsfluit begint.",
+   "bron": "https://en.wikipedia.org/wiki/Bol%C3%A9ro"
+  }
+ ],
+ "bezetting": [
+  "kleine trom",
+  "dwarsfluit",
+  "klarinet",
+  "fagot",
+  "hobo",
+  "trompet",
+  "saxofoon",
+  "hoorn",
+  "celesta",
+  "trombone",
+  "viool",
+  "altviool",
+  "cello",
+  "contrabas",
+  "harp",
+  "pauken",
+  "bekkens",
+  "grote trom",
+  "tamtam"
+ ]
+}
