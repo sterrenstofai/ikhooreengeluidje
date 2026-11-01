@@ -151,5 +151,50 @@
   "bestanden": [
    "https://theremin.music.uiowa.edu/sound files/MIS/Percussion/tambourines/tambourine1.normal.mf.aif"
   ]
+ },
+ "toon-c2": {
+  "pad": "/klanken/toon-c2.mp3",
+  "duur": 1.8,
+  "bron": "University of Iowa Musical Instrument Samples",
+  "bron_url": "https://theremin.music.uiowa.edu/MIS.html",
+  "bestanden": [
+   "https://theremin.music.uiowa.edu/sound files/MIS/Piano_Other/piano/Piano.mf.C2.aiff"
+  ]
+ },
+ "toon-c3": {
+  "pad": "/klanken/toon-c3.mp3",
+  "duur": 1.8,
+  "bron": "University of Iowa Musical Instrument Samples",
+  "bron_url": "https://theremin.music.uiowa.edu/MIS.html",
+  "bestanden": [
+   "https://theremin.music.uiowa.edu/sound files/MIS/Piano_Other/piano/Piano.mf.C3.aiff"
+  ]
+ },
+ "toon-c4": {
+  "pad": "/klanken/toon-c4.mp3",
+  "duur": 1.8,
+  "bron": "University of Iowa Musical Instrument Samples",
+  "bron_url": "https://theremin.music.uiowa.edu/MIS.html",
+  "bestanden": [
+   "https://theremin.music.uiowa.edu/sound files/MIS/Piano_Other/piano/Piano.mf.C4.aiff"
+  ]
+ },
+ "toon-c5": {
+  "pad": "/klanken/toon-c5.mp3",
+  "duur": 1.8,
+  "bron": "University of Iowa Musical Instrument Samples",
+  "bron_url": "https://theremin.music.uiowa.edu/MIS.html",
+  "bestanden": [
+   "https://theremin.music.uiowa.edu/sound files/MIS/Piano_Other/piano/Piano.mf.C5.aiff"
+  ]
+ },
+ "toon-c6": {
+  "pad": "/klanken/toon-c6.mp3",
+  "duur": 1.8,
+  "bron": "University of Iowa Musical Instrument Samples",
+  "bron_url": "https://theremin.music.uiowa.edu/MIS.html",
+  "bestanden": [
+   "https://theremin.music.uiowa.edu/sound files/MIS/Piano_Other/piano/Piano.mf.C6.aiff"
+  ]
  }
 }

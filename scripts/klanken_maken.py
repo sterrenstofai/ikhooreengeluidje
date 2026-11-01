@@ -84,7 +84,7 @@ def main():
                 bron = [BASIS + b["ladder"]]
             else:
                 haal(b["stuk"], t / "r.aif")
-                knip(t / "r.aif", t / "d.wav", STUK_S)
+                knip(t / "r.aif", t / "d.wav", b.get("duur", STUK_S))
                 delen.append(t / "d.wav")
                 bron = [BASIS + b["stuk"]]
             (t / "lijst.txt").write_text("".join(f"file '{d}'\n" for d in delen))

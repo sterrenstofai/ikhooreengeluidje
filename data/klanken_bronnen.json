@@ -1,18 +1,98 @@
 {
  "_uitleg": "Losse klanken uit de University of Iowa Musical Instrument Samples (vrij te gebruiken, zonder beperkingen). 'noten': losse noten die achter elkaar worden gezet (do-mi-sol-do). 'ladder': een toonladder, waarvan het begin wordt gebruikt. 'stuk': één opname, ingekort.",
- "dwarsfluit": {"noten": ["MIS Pitches - 2014/Woodwinds/Flute/Flute.vib.ff.C4.stereo.aif", "MIS Pitches - 2014/Woodwinds/Flute/Flute.vib.ff.E4.stereo.aif", "MIS Pitches - 2014/Woodwinds/Flute/Flute.vib.ff.G4.stereo.aif", "MIS Pitches - 2014/Woodwinds/Flute/Flute.vib.ff.C5.stereo.aif"]},
- "hobo": {"noten": ["MIS Pitches - 2014/Woodwinds/Oboe/Oboe.ff.C4.stereo.aif", "MIS Pitches - 2014/Woodwinds/Oboe/Oboe.ff.E4.stereo.aif", "MIS Pitches - 2014/Woodwinds/Oboe/Oboe.ff.G4.stereo.aif", "MIS Pitches - 2014/Woodwinds/Oboe/Oboe.ff.C5.stereo.aif"]},
- "klarinet": {"noten": ["MIS Pitches - 2014/Woodwinds/Bb Clarinet//BbClarinet.ff.C4.stereo.aif", "MIS Pitches - 2014/Woodwinds/Bb Clarinet//BbClarinet.ff.E4.stereo.aif", "MIS Pitches - 2014/Woodwinds/Bb Clarinet//BbClarinet.ff.G4.stereo.aif", "MIS Pitches - 2014/Woodwinds/Bb Clarinet//BbClarinet.ff.C5.stereo.aif"]},
- "fagot": {"noten": ["MIS Pitches - 2014/Woodwinds/Bassoon/Bassoon.ff.C3.stereo.aif", "MIS Pitches - 2014/Woodwinds/Bassoon/Bassoon.ff.E3.stereo.aif", "MIS Pitches - 2014/Woodwinds/Bassoon/Bassoon.ff.G3.stereo.aif", "MIS Pitches - 2014/Woodwinds/Bassoon/Bassoon.ff.C4.stereo.aif"]},
- "saxofoon": {"noten": ["MIS Pitches - 2014/Woodwinds/Eb Alto Saxophone/AltoSax.vib.ff.C4.stereo.aif", "MIS Pitches - 2014/Woodwinds/Eb Alto Saxophone/AltoSax.vib.ff.E4.stereo.aif", "MIS Pitches - 2014/Woodwinds/Eb Alto Saxophone/AltoSax.vib.ff.G4.stereo.aif", "MIS Pitches - 2014/Woodwinds/Eb Alto Saxophone/AltoSax.vib.ff.C5.stereo.aif"]},
- "hoorn": {"ladder": "MIS/Brass/frenchhorn/Horn.mf.C4B4.aiff"},
- "trompet": {"ladder": "MIS/Brass/Bbtrumpet/Trumpet.vib.mf.C4B4.aiff"},
- "trombone": {"ladder": "MIS/Brass/tenortrombone/TenorTrombone.mf.C3B3.aiff"},
- "viool": {"ladder": "MIS/Strings/violin2012/Violin.arco.mf.sulG.C4B5.stereo.aif"},
- "altviool": {"ladder": "MIS/Strings/viola2012/Viola.arco.sulG.mf.C4B4.stereo.aif"},
- "cello": {"ladder": "MIS/Strings/cello2012/Cello.arco.mf.sulC.C3C4.stereo.aif"},
- "contrabas": {"ladder": "MIS/Strings/doublebass2012/Bass.arco.sulG.mf.C3B3.stereo.aif"},
- "piano": {"noten": ["MIS/Piano_Other/piano/Piano.mf.C4.aiff", "MIS/Piano_Other/piano/Piano.mf.E4.aiff", "MIS/Piano_Other/piano/Piano.mf.G4.aiff", "MIS/Piano_Other/piano/Piano.mf.C5.aiff"]},
- "gitaar": {"ladder": "MIS/Piano_Other/guitar/Guitar.mf.sulA.C3B3.stereo.aif"},
- "tamboerijn": {"stuk": "MIS/Percussion/tambourines/tambourine1.normal.mf.aif"}
+ "dwarsfluit": {
+  "noten": [
+   "MIS Pitches - 2014/Woodwinds/Flute/Flute.vib.ff.C4.stereo.aif",
+   "MIS Pitches - 2014/Woodwinds/Flute/Flute.vib.ff.E4.stereo.aif",
+   "MIS Pitches - 2014/Woodwinds/Flute/Flute.vib.ff.G4.stereo.aif",
+   "MIS Pitches - 2014/Woodwinds/Flute/Flute.vib.ff.C5.stereo.aif"
+  ]
+ },
+ "hobo": {
+  "noten": [
+   "MIS Pitches - 2014/Woodwinds/Oboe/Oboe.ff.C4.stereo.aif",
+   "MIS Pitches - 2014/Woodwinds/Oboe/Oboe.ff.E4.stereo.aif",
+   "MIS Pitches - 2014/Woodwinds/Oboe/Oboe.ff.G4.stereo.aif",
+   "MIS Pitches - 2014/Woodwinds/Oboe/Oboe.ff.C5.stereo.aif"
+  ]
+ },
+ "klarinet": {
+  "noten": [
+   "MIS Pitches - 2014/Woodwinds/Bb Clarinet//BbClarinet.ff.C4.stereo.aif",
+   "MIS Pitches - 2014/Woodwinds/Bb Clarinet//BbClarinet.ff.E4.stereo.aif",
+   "MIS Pitches - 2014/Woodwinds/Bb Clarinet//BbClarinet.ff.G4.stereo.aif",
+   "MIS Pitches - 2014/Woodwinds/Bb Clarinet//BbClarinet.ff.C5.stereo.aif"
+  ]
+ },
+ "fagot": {
+  "noten": [
+   "MIS Pitches - 2014/Woodwinds/Bassoon/Bassoon.ff.C3.stereo.aif",
+   "MIS Pitches - 2014/Woodwinds/Bassoon/Bassoon.ff.E3.stereo.aif",
+   "MIS Pitches - 2014/Woodwinds/Bassoon/Bassoon.ff.G3.stereo.aif",
+   "MIS Pitches - 2014/Woodwinds/Bassoon/Bassoon.ff.C4.stereo.aif"
+  ]
+ },
+ "saxofoon": {
+  "noten": [
+   "MIS Pitches - 2014/Woodwinds/Eb Alto Saxophone/AltoSax.vib.ff.C4.stereo.aif",
+   "MIS Pitches - 2014/Woodwinds/Eb Alto Saxophone/AltoSax.vib.ff.E4.stereo.aif",
+   "MIS Pitches - 2014/Woodwinds/Eb Alto Saxophone/AltoSax.vib.ff.G4.stereo.aif",
+   "MIS Pitches - 2014/Woodwinds/Eb Alto Saxophone/AltoSax.vib.ff.C5.stereo.aif"
+  ]
+ },
+ "hoorn": {
+  "ladder": "MIS/Brass/frenchhorn/Horn.mf.C4B4.aiff"
+ },
+ "trompet": {
+  "ladder": "MIS/Brass/Bbtrumpet/Trumpet.vib.mf.C4B4.aiff"
+ },
+ "trombone": {
+  "ladder": "MIS/Brass/tenortrombone/TenorTrombone.mf.C3B3.aiff"
+ },
+ "viool": {
+  "ladder": "MIS/Strings/violin2012/Violin.arco.mf.sulG.C4B5.stereo.aif"
+ },
+ "altviool": {
+  "ladder": "MIS/Strings/viola2012/Viola.arco.sulG.mf.C4B4.stereo.aif"
+ },
+ "cello": {
+  "ladder": "MIS/Strings/cello2012/Cello.arco.mf.sulC.C3C4.stereo.aif"
+ },
+ "contrabas": {
+  "ladder": "MIS/Strings/doublebass2012/Bass.arco.sulG.mf.C3B3.stereo.aif"
+ },
+ "piano": {
+  "noten": [
+   "MIS/Piano_Other/piano/Piano.mf.C4.aiff",
+   "MIS/Piano_Other/piano/Piano.mf.E4.aiff",
+   "MIS/Piano_Other/piano/Piano.mf.G4.aiff",
+   "MIS/Piano_Other/piano/Piano.mf.C5.aiff"
+  ]
+ },
+ "gitaar": {
+  "ladder": "MIS/Piano_Other/guitar/Guitar.mf.sulA.C3B3.stereo.aif"
+ },
+ "tamboerijn": {
+  "stuk": "MIS/Percussion/tambourines/tambourine1.normal.mf.aif"
+ },
+ "toon-c2": {
+  "stuk": "MIS/Piano_Other/piano/Piano.mf.C2.aiff",
+  "duur": 1.8
+ },
+ "toon-c3": {
+  "stuk": "MIS/Piano_Other/piano/Piano.mf.C3.aiff",
+  "duur": 1.8
+ },
+ "toon-c4": {
+  "stuk": "MIS/Piano_Other/piano/Piano.mf.C4.aiff",
+  "duur": 1.8
+ },
+ "toon-c5": {
+  "stuk": "MIS/Piano_Other/piano/Piano.mf.C5.aiff",
+  "duur": 1.8
+ },
+ "toon-c6": {
+  "stuk": "MIS/Piano_Other/piano/Piano.mf.C6.aiff",
+  "duur": 1.8
+ }
 }

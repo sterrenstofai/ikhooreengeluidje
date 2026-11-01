@@ -504,3 +504,189 @@ a.sample-naam:hover strong { text-decoration: underline; }
 .kids-bron { position: absolute; right: .8rem; top: max(.9rem, env(safe-area-inset-top)); z-index: 3; margin: 0; max-width: 60vw; text-align: right; font: 400 .66rem/1.3 var(--ui); color: var(--inkt-zacht); }
 .kids-bron a { color: inherit; }
 @media (max-width: 899px) { .kids-bron { max-width: calc(100vw - 5rem); } }
+
+/* ---------- Onderzoekjes met Fos (overgenomen van Voggels) ---------- */
+.oz-teaser { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.2rem; align-items: center; text-decoration: none; background: var(--rood-licht); border-radius: 28px; padding: 1.6rem; position: relative; overflow: hidden; }
+@media (min-width: 760px) { .oz-teaser { grid-template-columns: 1fr auto; padding: 2.4rem; } }
+.oz-teaser::after { content: "?"; position: absolute; right: -.1em; bottom: -.32em; font: 400 14rem/1 var(--kop); color: color-mix(in srgb, var(--rood) 14%, transparent); pointer-events: none; }
+.oz-teaser-tekst { display: grid; gap: .45rem; max-width: 34rem; position: relative; z-index: 1; }
+.oz-teaser-tekst strong { font-family: var(--kop); font-weight: 500; font-size: clamp(2rem, 6vw, 3rem); line-height: 1; }
+.oz-teaser .knop-pil { justify-self: start; position: relative; z-index: 1; }
+.oz-boventitel { font: 600 .78rem var(--ui); letter-spacing: .08em; text-transform: uppercase; color: var(--rood); margin: 0; }
+.oz-held { padding-top: 1.6rem; }
+.oz-held h1, .oz-kop h1 { font-size: clamp(2.8rem, 11vw, 5.6rem); line-height: .98; margin-top: .4rem; }
+.oz-held h1 em { color: var(--rood); font-weight: 400; }
+.oz-lijst { display: grid; gap: .7rem; margin-top: 2rem; }
+@media (min-width: 900px) { .oz-lijst { grid-template-columns: 1fr 1fr; } }
+.oz-kaart { display: grid; grid-template-columns: auto 1fr auto; gap: 1.1rem; align-items: center; text-decoration: none; background: var(--papier-licht); border: 1.5px solid var(--lijn); border-radius: 24px; padding: 1.1rem 1.3rem; min-height: 6rem; transition: transform var(--snel), border-color var(--snel); }
+.oz-kaart:hover { border-color: var(--inkt); transform: translateY(-2px); }
+.oz-nummer { font: 400 3.2rem/1 var(--kop); color: var(--rood); width: 2.6rem; text-align: center; }
+.oz-kaart-tekst { display: grid; gap: .2rem; }
+.oz-kaart-tekst strong { font: 500 1.45rem/1.1 var(--kop); }
+.oz-kaart-tekst span { font: 400 .95rem/1.4 var(--tekst); color: var(--inkt-zacht); }
+.oz-pijl { font: 400 1.5rem var(--ui); }
+.oz-noot { margin-top: 2rem; font-size: .9rem; }
+.oz-kop { padding-top: 1.2rem; }
+.oz-terug { font: 500 .95rem var(--ui); text-decoration: none; display: inline-block; padding: .6rem 0; }
+.oz-twee { display: grid; gap: 1rem; margin-top: 2rem; }
+@media (min-width: 760px) { .oz-twee { grid-template-columns: 1fr 1.4fr; } }
+.oz-blok { background: var(--papier-licht); border-radius: 24px; padding: 1.3rem 1.5rem; }
+.oz-blok h2, .oz-logboek h2, .oz-werk h2 { font-size: 1.7rem; margin-bottom: .6rem; }
+.oz-blok ul, .oz-blok ol { margin: 0; padding-left: 1.2rem; font-size: 1.1rem; }
+.oz-blok li { margin-bottom: .45rem; }
+.oz-werk { margin-top: 2.5rem; }
+.oz-werk h2 { margin-top: 2rem; }
+.knop-groot-pil { min-height: 60px; padding: .8rem 1.6rem; font-size: 1.1rem; }
+.knop-groot-pil svg { width: 26px; height: 26px; }
+.oz-quiz { background: var(--papier-licht); border-radius: 28px; padding: 1.4rem; }
+.oz-luister { margin: 1rem 0 1.4rem; }
+.oz-keuzes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; }
+.oz-keuze { border: 2px solid transparent; background: var(--passe); border-radius: 18px; padding: .5rem; cursor: pointer; display: grid; gap: .5rem; text-align: center; transition: transform var(--snel), border-color var(--snel); }
+.oz-keuze:hover { transform: translateY(-2px); border-color: var(--inkt); }
+.oz-keuze-beeld { aspect-ratio: 4 / 5; overflow: hidden; border-radius: 12px; background: var(--passe); display: grid; place-items: center; }
+.oz-keuze-beeld img { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; }
+.oz-keuze-naam { font: 500 1.05rem/1.15 var(--kop); }
+.oz-keuze.oz-goed { border-color: var(--heide); box-shadow: 0 0 0 3px color-mix(in srgb, var(--heide) 30%, transparent); }
+.oz-keuze.oz-fout { border-color: var(--rood); opacity: .75; }
+.oz-keuze[disabled] { cursor: default; transform: none; }
+.oz-feedback { font: 400 1.15rem/1.5 var(--tekst); margin-top: 1rem; display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
+.oz-uitslag { text-align: center; padding: 2rem 1rem; background: var(--papier-licht); border-radius: 28px; }
+.oz-score { font: 400 5rem/1 var(--kop); margin: 0; color: var(--rood); }
+.oz-score small { font-size: 1.4rem; color: var(--inkt-zacht); }
+.oz-geen { font-family: var(--kop); padding: .5rem; }
+.oz-tellijst { display: grid; gap: .5rem; margin-top: 1rem; }
+@media (min-width: 900px) { .oz-tellijst { grid-template-columns: 1fr 1fr; } }
+.oz-teller { display: grid; grid-template-columns: 56px 1fr auto; gap: .9rem; align-items: center; background: var(--papier-licht); border-radius: 18px; padding: .5rem .7rem; }
+.oz-teller-beeld { width: 56px; height: 70px; border-radius: 10px; overflow: hidden; background: var(--passe); display: grid; place-items: center; font-size: .7rem; }
+.oz-teller-beeld img { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; }
+.oz-teller-naam { font: 500 1.2rem/1.1 var(--kop); display: grid; gap: .2rem; }
+.oz-teller-naam small { font: 400 .78rem var(--ui); color: var(--inkt-zacht); }
+.oz-teller-knoppen { display: flex; align-items: center; gap: .3rem; }
+.oz-teller-knoppen button { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--inkt); background: var(--papier); font: 500 1.4rem/1 var(--ui); cursor: pointer; }
+.oz-teller-knoppen button[data-plus] { background: var(--inkt); color: var(--papier); }
+.oz-teller-knoppen output { min-width: 2ch; text-align: center; font: 500 1.4rem var(--ui); font-variant-numeric: tabular-nums; }
+.oz-totaal { font-size: 1.2rem; margin-top: 1rem; }
+.oz-spectro canvas { height: clamp(200px, 50vw, 320px); }
+.oz-vogelknoppen { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.oz-raad { margin-top: 1rem; background: var(--papier-licht); border-radius: 22px; padding: 1rem 1.2rem; }
+.oz-maand-vogel { display: grid; grid-template-columns: 110px 1fr; gap: 1.2rem; align-items: center; }
+.oz-maand-vogel h2 { margin: .2rem 0 .8rem; }
+.oz-maanden { display: grid; grid-template-columns: repeat(6, 1fr); gap: .4rem; margin-top: .8rem; }
+.oz-maanden button { min-height: 48px; border-radius: 14px; border: 1.5px solid var(--lijn); background: var(--papier-licht); font: 500 1rem var(--ui); cursor: pointer; text-transform: capitalize; }
+.oz-maanden button:hover { border-color: var(--inkt); }
+.oz-antwoord { margin-top: 1.4rem; }
+.oz-antwoord .kalender-staven div { opacity: .35; }
+.oz-antwoord .kalender-staven .oz-piek { opacity: 1; background: var(--rood); }
+.oz-antwoord .kalender-staven .oz-gok { outline: 2px dashed var(--inkt); outline-offset: 2px; }
+.oz-vraag { background: var(--papier-licht); border-radius: 22px; padding: 1.1rem 1.3rem; margin-top: .8rem; }
+.oz-vraag h3 { font-size: 1.35rem; margin-bottom: .6rem; }
+.oz-vraag details { margin-top: .6rem; }
+.oz-vraag summary { cursor: pointer; font: 500 .95rem var(--ui); min-height: 40px; display: flex; align-items: center; }
+.oz-boek { display: grid; gap: 1.5rem; }
+@media (min-width: 900px) { .oz-boek { grid-template-columns: 1fr 1fr; align-items: start; } }
+.oz-boek ol { font-size: 1.1rem; padding-left: 1.2rem; }
+.oz-logboek { margin-top: 3rem; border-top: 1px solid var(--inkt); padding-top: 1.4rem; display: grid; gap: 1rem; }
+.oz-veld { display: grid; gap: .4rem; font: 500 .95rem var(--ui); }
+.oz-veld textarea, .oz-veld input { font: 400 1.1rem/1.5 var(--tekst); background: var(--papier-licht); border: 1.5px solid var(--lijn); border-radius: 18px; padding: .8rem 1rem; width: 100%; }
+.oz-veld textarea:focus, .oz-veld input:focus { outline: none; border-color: var(--inkt); }
+.oz-stempel { display: inline-grid; place-items: center; width: 8.5rem; height: 8.5rem; border-radius: 50%; border: 3px double var(--rood); color: var(--rood); font: 500 1.7rem/1 var(--kop); transform: rotate(-9deg); text-align: center; }
+.oz-stempel small { display: block; font: 600 .62rem var(--ui); letter-spacing: .08em; text-transform: uppercase; margin-top: -1.6rem; }
+.oz-stempel-nieuw { animation: stempel 500ms cubic-bezier(.2, 1.6, .4, 1) both; }
+@keyframes stempel { from { transform: rotate(-9deg) scale(1.8); opacity: 0; } to { transform: rotate(-9deg) scale(1); opacity: 1; } }
+.oz-stempel-klein { width: 4.6rem; height: 4.6rem; font-size: 1rem; border-width: 2px; }
+
+/* Onderzoekjes: voortgang, buiten, certificaat */
+.oz-voortgang { margin-top: 1.4rem; display: grid; gap: .5rem; max-width: 34rem; }
+.oz-voortgang-balk { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px; }
+.oz-voortgang-balk li { height: 12px; border-radius: 999px; background: var(--passe); position: relative; overflow: hidden; }
+.oz-voortgang-balk li.klaar { background: var(--rood); }
+.oz-voortgang-balk li.hier { box-shadow: 0 0 0 2px var(--papier), 0 0 0 3.5px var(--inkt); }
+.oz-voortgang p { margin: 0; font: 500 .92rem var(--ui); color: var(--inkt-zacht); }
+.oz-buiten { margin-top: 1rem; background: var(--rood-licht); border-radius: 24px; padding: 1.3rem 1.5rem; }
+.oz-buiten h2 { font-size: 1.7rem; margin-bottom: .6rem; }
+.oz-buiten ul { margin: 0; padding-left: 1.2rem; font-size: 1.1rem; }
+.oz-buiten li { margin-bottom: .45rem; }
+.oz-certificaat { margin-top: 2.5rem; display: grid; gap: 1.4rem; align-items: center; background: var(--papier-licht); border: 1.5px solid var(--lijn); border-radius: 28px; padding: 1.6rem; }
+.oz-certificaat h2 { font-size: 2rem; margin-bottom: .4rem; }
+.oz-certificaat .oz-veld { max-width: 24rem; margin: 1rem 0 .4rem; }
+.oz-certificaat-voorbeeld { width: 100%; height: auto; border-radius: 6px; box-shadow: 0 18px 40px -24px rgb(0 0 0 / .45); background: #F4F4F4; }
+.oz-certificaat-dicht { grid-template-columns: 1fr auto; }
+.oz-slot { display: grid; place-items: center; width: 4.6rem; height: 4.6rem; border-radius: 50%; border: 2px dashed var(--lijn); font: 400 2rem var(--kop); color: var(--inkt-zacht); }
+@media (min-width: 900px) { .oz-certificaat:not(.oz-certificaat-dicht) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); } }
+.oz-opnieuw { margin-top: 1.6rem; }
+.oz-opnieuw .knop-pil svg { width: 18px; height: 18px; }
+.oz-opnieuw-vraag { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; background: var(--papier-licht); border: 1.5px solid var(--lijn); border-radius: 24px; padding: 1rem 1.3rem; }
+.oz-opnieuw-vraag[hidden] { display: none; }
+.oz-opnieuw-vraag p { margin: 0; flex-basis: 100%; font-size: 1.05rem; }
+.oz-opnieuw [hidden] { display: none; }
+.sim-label-van { background: #A1FFCB; color: #232323; padding-left: .7rem; margin: -1.6rem 0 0 0; translate: -50% 0; }
+.sim-label-van::after { content: ""; position: absolute; left: 50%; margin-left: -6px; bottom: -6px; border: 6px solid transparent; border-bottom: 0; border-top-color: #A1FFCB; }
+.sim-van i { display: inline-block; width: .6rem; height: .6rem; border-radius: 50%; margin-right: .45rem; }
+
+.oz-voortgang-balk li { border-radius: 0; height: 10px; }
+.oz-voortgang-balk li.klaar { background: var(--inkt); }
+.oz-voortgang-balk li.hier { box-shadow: none; background: var(--mint); }
+.oz-voortgang-balk li.hier.klaar { background: var(--inkt); box-shadow: inset 0 -3px 0 var(--mint); }
+.oz-stempel { border-color: var(--inkt); color: var(--inkt); font-weight: 500; letter-spacing: -0.04em; }
+.oz-buiten { background: var(--mint); }
+.oz-teaser { background: var(--mint); }
+.oz-teaser::after { color: rgb(35 35 35 / .07); }
+
+/* Onderzoekjes: eigen onderdelen */
+.oz-held h1 .accent { font-weight: 300; }
+.knop-groot-pil { min-height: 56px; padding: .8rem 1.5rem; font-size: 1.1rem; }
+.oz-hoes { aspect-ratio: 1; }
+.oz-keuze-beeld img { object-fit: contain; }
+.oz-hoes img { object-fit: cover; mix-blend-mode: normal; }
+.oz-tik { display: grid; place-items: center; width: min(16rem, 70vw); aspect-ratio: 1; margin: 1.5rem auto; border-radius: 50%; border: 0; background: var(--mint); color: var(--inkt); font: 300 2.6rem var(--kop); cursor: pointer; touch-action: manipulation; user-select: none; -webkit-user-select: none; box-shadow: 0 16px 36px -18px rgb(0 0 0 / .5); }
+.oz-tik.plop { animation: plop-tik 180ms ease-out; }
+@keyframes plop-tik { 0% { transform: scale(.92); } 100% { transform: scale(1); } }
+.oz-tempo { text-align: center; }
+.oz-tempo .oz-score { font-weight: 300; }
+.oz-vogelknoppen .knop-pil[aria-pressed="true"] { background: var(--inkt); color: var(--papier); }
+.oz-drum { display: grid; gap: .7rem; max-width: 46rem; }
+.oz-drum-rij { display: grid; grid-template-columns: 9.5rem 1fr; gap: .8rem; align-items: center; }
+.oz-drum-naam { font: 500 .9rem var(--ui); }
+.oz-drum-stappen { display: grid; grid-template-columns: repeat(8, 1fr); gap: .35rem; }
+.oz-stap { aspect-ratio: 1; min-height: 40px; border-radius: 10px; border: 1.5px solid var(--lijn); background: var(--papier-licht); cursor: pointer; }
+.oz-stap.tel { border-color: color-mix(in srgb, var(--inkt) 35%, transparent); }
+.oz-stap[aria-pressed="true"] { background: var(--inkt); border-color: var(--inkt); }
+.oz-stap.nu { box-shadow: 0 0 0 3px var(--mint); }
+.oz-drum-knoppen { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: .6rem; }
+.oz-tempo-schuif { display: flex; align-items: center; gap: .6rem; font: 400 .85rem var(--ui); color: var(--inkt-zacht); }
+.oz-tempo-schuif input { accent-color: var(--inkt); width: 10rem; }
+@media (max-width: 560px) { .oz-drum-rij { grid-template-columns: 1fr; gap: .3rem; } }
+.oz-tonen { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .6rem; margin: 1rem 0; }
+.oz-toon { display: grid; gap: .5rem; justify-items: center; }
+.oz-toon-luister { width: 64px; height: 64px; border-radius: 50%; border: 0; background: var(--inkt); color: var(--papier); display: grid; place-items: center; cursor: pointer; }
+.oz-toon-luister svg { width: 26px; height: 26px; }
+.oz-toon-kies { min-width: 64px; min-height: 40px; border-radius: 999px; border: 1.5px solid var(--inkt); background: var(--papier); font: 500 .95rem var(--ui); cursor: pointer; }
+.oz-toon-kies[disabled] { background: var(--mint); border-color: var(--mint); cursor: default; }
+.oz-rij-label { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
+.oz-bolletje { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--inkt); display: inline-block; }
+.oz-paren { display: grid; gap: .8rem; }
+.oz-paar { display: grid; grid-template-columns: 1fr auto 1fr; gap: .6rem 1rem; align-items: center; background: var(--papier-licht); border-radius: 22px; padding: 1rem; }
+.oz-paar-kant { display: grid; grid-template-columns: 72px 1fr; gap: .8rem; align-items: center; min-width: 0; }
+.oz-paar-kant > div { display: grid; gap: .2rem; justify-items: start; min-width: 0; }
+.oz-paar-kant .etiket { margin: 0; }
+.oz-paar-kant a { text-decoration: none; overflow-wrap: anywhere; }
+.oz-paar-kant .knop-pil { min-height: 38px; padding: .3rem .9rem; font-size: .9rem; margin-top: .3rem; }
+.oz-paar-kant .knop-pil svg { width: 16px; height: 16px; }
+.oz-paar-hoes img { width: 72px; height: 72px; object-fit: cover; border-radius: 6px; }
+.oz-paar-pijl { font: 300 2rem var(--kop); }
+.oz-paar-wat { grid-column: 1 / -1; margin: 0; font-size: .95rem; }
+@media (max-width: 700px) { .oz-paar { grid-template-columns: 1fr; } .oz-paar-pijl { transform: rotate(90deg); justify-self: center; } }
+@media (max-width: 420px) {
+  .balk-nav { gap: .3rem; }
+  .nav-knop { width: 36px; height: 36px; }
+  .nav-knop svg { width: 18px; height: 18px; }
+  .merk { gap: .35rem; }
+  .merk-icoon { width: 24px; height: 24px; }
+  .merk-naam { font-size: 1.05rem; }
+  .oz-tonen { gap: .3rem; }
+  .oz-toon-luister { width: 52px; height: 52px; }
+  .oz-toon-kies { min-width: 0; width: 100%; padding: 0 .2rem; font-size: .85rem; }
+}
+.oz-logboek .knop-pil { white-space: normal; text-align: left; line-height: 1.25; max-width: 100%; }
+.oz-drum-stappen { gap: .25rem; }
+.oz-stap { min-height: 0; min-width: 0; }

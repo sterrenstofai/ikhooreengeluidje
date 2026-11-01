@@ -4,7 +4,7 @@ import { F_LAAG, F_HOOG } from "./geluid.js";
 const app = document.getElementById("app");
 const TITEL = "ikhooreengeluidje";
 let paginaDoeken = [];
-let kinderModule = null;
+let kinderModule = null, ozModule = null;
 
 /* ---------- Data ---------- */
 
@@ -89,11 +89,21 @@ async function toon() {
     document.body.classList.toggle("onder-kop", !pad.startsWith("/nummer/"));
     document.body.classList.toggle("kindermodus", pad === "/kinderen");
     kinderModule?.verlaat();
+    ozModule?.verlaat();
     if (pad === "/") home(D);
     else if (pad.startsWith("/nummer/")) nummerPagina(D, decodeURIComponent(pad.slice(8)));
     else if (pad === "/nummers") index(D);
     else if (pad === "/instrumenten") instrumentenIndex(D);
     else if (pad.startsWith("/instrument/")) instrumentPagina(D, decodeURIComponent(pad.slice(12)));
+    else if (pad === "/onderzoekjes" || pad.startsWith("/onderzoekjes/")) {
+      document.title = `Onderzoekjes met Fos · ${TITEL}`;
+      import("./onderzoekjes.js").then((OZ) => {
+        ozModule = OZ;
+        if (pad === "/onderzoekjes") OZ.overzicht(app);
+        else if (!OZ.onderzoekje(app, pad.slice(14), D)) nietGevonden();
+        else document.title = `${app.querySelector("h1")?.textContent} · Onderzoekjes met Fos`;
+      });
+    }
     else if (pad === "/kinderen") {
       document.title = `Instrumenten voor kinderen · ${TITEL}`;
       import("./kinderen.js").then((K) => { kinderModule = K; K.kinderPagina(app, D.fotos, D.klanken); });
