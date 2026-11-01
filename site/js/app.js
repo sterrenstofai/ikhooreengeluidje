@@ -4,7 +4,7 @@ import { F_LAAG, F_HOOG } from "./geluid.js";
 const app = document.getElementById("app");
 const TITEL = "ikhooreengeluidje";
 let paginaDoeken = [];
-let kinderModule = null, ozModule = null;
+let kinderModule = null, ozModule = null, sporenModule = null;
 
 /* ---------- Data ---------- */
 
@@ -90,6 +90,7 @@ async function toon() {
     document.body.classList.toggle("kindermodus", pad === "/kinderen");
     kinderModule?.verlaat();
     ozModule?.verlaat();
+    sporenModule?.verlaat();
     if (pad === "/") home(D);
     else if (pad.startsWith("/nummer/")) nummerPagina(D, decodeURIComponent(pad.slice(8)));
     else if (pad === "/nummers") index(D);
@@ -103,6 +104,10 @@ async function toon() {
         else if (!OZ.onderzoekje(app, pad.slice(14), D)) nietGevonden();
         else document.title = `${app.querySelector("h1")?.textContent} · Onderzoekjes met Fos`;
       });
+    }
+    else if (pad === "/sporen") {
+      document.title = `Sporen · ${TITEL}`;
+      import("./sporen.js").then((S) => { sporenModule = S; S.sporenPagina(app); });
     }
     else if (pad === "/kinderen") {
       document.title = `Instrumenten voor kinderen · ${TITEL}`;
@@ -160,6 +165,7 @@ function home(D) {
     <div class="held-knoppen">
       <a class="knop-pil knop-accent" href="/ontdek" data-link>Ontdek een nummer</a>
       ${vb ? `<a class="knop-pil" href="/nummer/${vb.slug}" data-link>Begin met ${esc(vb.titel)}</a>` : ""}
+      <a class="knop-pil" href="/sporen" data-link>Haal je eigen nummer uit elkaar</a>
     </div>
   </section>
   ${lijst(D, "Alle nummers", true)}`;
@@ -323,10 +329,10 @@ function paneelGeluidsbeeld(n) {
 function paneelSporen(n) {
   return `<div class="paneel-binnen">
     ${etiket("Sporen")}
-    <p class="sporen-kop">Hier hoor je straks elk instrument apart.</p>
-    <p>Dat kan alleen als schatting: een computer probeert de zang, de drums en de bas uit de opname los te halen. Dat werkt goed, maar nooit perfect. Er lekt altijd wat van de rest door.</p>
-    <p>Omdat we fragmenten niet mogen bewaren of bewerken, gaat dat straks op een muziekbestand dat je zelf opent, in je eigen browser. Er wordt dan niets geüpload.</p>
-    <p class="zacht">Dit onderdeel wordt nu gebouwd.</p>
+    <p class="sporen-kop">Hoor elk instrument apart.</p>
+    <p>In de studio wordt elk instrument op een eigen spoor opgenomen. Die sporen zijn bijna nooit openbaar. Een computerprogramma kan wel proberen de zang, de drums en de bas uit een opname los te halen. Dat is altijd een schatting: er lekt altijd wat van de rest door.</p>
+    <p>Het fragment van 30 seconden mogen we niet bewerken. Heb je ${esc(n.titel)} zelf als muziekbestand? Open het dan hier, in je eigen browser. Er wordt niets geüpload.</p>
+    <p><a class="knop-pil knop-accent" href="/sporen" data-link>Open je eigen muziekbestand</a></p>
   </div>`;
 }
 

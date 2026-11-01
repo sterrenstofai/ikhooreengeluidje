@@ -8,7 +8,8 @@ Opbouw en uiterlijk volgen Voggels (`sterrenstofai/vogels`).
 
 - Fase 1, datacheck: klaar. Zie `docs/fase1-datacheck.md`.
 - Fase 2, bouwen: live op https://ikhooreengeluidje.netlify.app. Klaar: 35 nummers met credits, samples, fragment en geluidsbeeld; instrumenten met foto en klank; kinderversie; onderzoekjes met Fos.
-- Nog te doen: "Mijn nummers", zoeken in alle nummers (MusicBrainz), en als laatste je eigen bestand openen met sporen.
+- Sporen: je eigen bestand openen en een minuut uit elkaar halen (HTDemucs in de browser), met tijdlijn per spoor.
+- Nog te doen: "Mijn nummers" en zoeken in alle nummers (MusicBrainz).
 
 Elke push naar `main` gaat via Netlify vanzelf live.
 

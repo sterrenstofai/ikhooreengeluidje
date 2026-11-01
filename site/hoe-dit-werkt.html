@@ -42,7 +42,14 @@
     <p>Het geluidsbeeld (een spectrogram) wordt in je eigen browser uitgerekend uit dat fragment. Onderin zitten de lage tonen, bovenin de hoge.</p>
 
     <h2>Sporen</h2>
-    <p>Een nummer wordt in de studio opgenomen op losse sporen: een voor de zang, een voor de drums, enzovoort. Die sporen zijn bijna nooit openbaar. Wat wel kan, is een computer laten proberen om zang, drums en bas uit de opname los te halen. Dat is altijd een schatting. Dit onderdeel wordt nu gebouwd, en werkt straks op een muziekbestand dat je zelf opent, zonder dat er iets wordt geüpload.</p>
+    <p>Een nummer wordt in de studio opgenomen op losse sporen: een voor de zang, een voor de drums, enzovoort. Die sporen zijn bijna nooit openbaar. Op <a href="/sporen">de pagina Sporen</a> kun je een muziekbestand van je eigen apparaat openen. Een computerprogramma probeert dan de zang, de drums, de bas en de rest los te halen. Dat is altijd een schatting.</p>
+    <ul>
+      <li>Het programma is HTDemucs, gemaakt door Meta en vrij te gebruiken (MIT). Het draait in je eigen browser, via ONNX Runtime Web (Microsoft, MIT) en demucs-web (MIT). Je bestand wordt niet geüpload.</li>
+      <li>De eerste keer downloadt je browser het rekenmodel: 181 MB, van Hugging Face. Je browser controleert of het precies het goede bestand is en bewaart het daarna op je apparaat. Hugging Face ziet daarbij je IP-adres, net als bij elke download.</li>
+      <li>We halen hooguit een minuut uit elkaar. Een heel nummer past niet in het geheugen van een telefoon. Op een computer duurt een minuut een paar minuten rekenen; met een grafische kaart (WebGPU) gaat het sneller.</li>
+      <li>Hoe goed is het? We vergeleken het met de gewone versie van Demucs op dezelfde opname. Zang, drums en bas lopen bijna precies gelijk op (samenhang 0,99, 0,96 en 0,90). "Overig" wijkt meer af (0,52): daar komt alles terecht wat geen zang, drums of bas is, en wat het programma niet zeker weet.</li>
+      <li>Fragmenten van iTunes mogen we niet bewerken. Daarom werkt dit alleen op je eigen bestanden.</li>
+    </ul>
 
     <h2>Voor kinderen</h2>
     <p>Op <a href="/kinderen">de kinderpagina</a> zie je een groot instrument. Tik erop en je toestel zegt de naam (met de stem die op je toestel staat). Met de grote knop hoor je het instrument: drie noten, do, mi en sol. Die klanken komen uit de <a href="https://theremin.music.uiowa.edu/MIS.html">Musical Instrument Samples</a> van de University of Iowa, die vrij te gebruiken zijn. Drums, basgitaar, elektrische gitaar, synthesizer en drumcomputer zitten daar niet in; die klanken komen van Wikimedia Commons, met de maker en licentie erbij. De foto's komen ook van Wikimedia Commons.</p>
@@ -53,12 +60,12 @@
     <h2>Wat de site niet kan</h2>
     <ul>
       <li>Niet elk nummer staat erin. Deze lijst is met de hand gekozen. Zoeken in alle nummers komt later, en dan staat erbij dat het niet is nagekeken.</li>
-      <li>Geen echte studiosporen, alleen schattingen.</li>
+      <li>Geen echte studiosporen, alleen schattingen, en alleen voor een bestand dat je zelf opent.</li>
       <li>Niet precies zeggen wanneer elk instrument speelt in het hele nummer.</li>
     </ul>
 
     <h2>Privacy</h2>
-    <p>Geen cookies, geen bezoekersstatistiek, geen tracking. Wat je zoekt, wordt niet bewaard. Voor het fragment en de hoes maakt je browser verbinding met Apple (iTunes); zonder dat kan de site geen geluid laten horen.</p>
+    <p>Geen cookies, geen bezoekersstatistiek, geen tracking. Wat je zoekt, wordt niet bewaard. Voor het fragment en de hoes maakt je browser verbinding met Apple (iTunes); zonder dat kan de site geen geluid laten horen. Voor de sporen haalt je browser één keer het rekenmodel bij Hugging Face. Muziekbestanden die je opent, blijven op je apparaat.</p>
 
     <h2>Gemaakt met</h2>
     <p>Statische HTML, CSS en JavaScript, zonder framework. Letters: Geist en Geist Mono (OFL). De broncode en de scripts die de gegevens ophalen staan op GitHub.</p>
