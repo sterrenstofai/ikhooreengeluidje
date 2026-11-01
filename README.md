@@ -7,7 +7,10 @@ Opbouw en uiterlijk volgen Voggels (`sterrenstofai/vogels`).
 ## Stand
 
 - Fase 1, datacheck: klaar. Zie `docs/fase1-datacheck.md`.
-- Fase 2, bouwen: nog niet begonnen.
+- Fase 2, bouwen: live op https://ikhooreengeluidje.netlify.app. Klaar: 35 nummers met credits, samples, fragment en geluidsbeeld; instrumenten met foto en klank; kinderversie; onderzoekjes met Fos.
+- Nog te doen: "Mijn nummers", zoeken in alle nummers (MusicBrainz), en als laatste je eigen bestand openen met sporen.
+
+Elke push naar `main` gaat via Netlify vanzelf live.
 
 ## Besluiten (1 november 2026)
 
