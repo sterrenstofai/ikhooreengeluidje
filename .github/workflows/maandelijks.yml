@@ -1,0 +1,49 @@
+name: Nummers verversen
+
+# Elke maand credits, samples en previews opnieuw ophalen en de sitedata opnieuw bouwen.
+# Een push naar main zet de site via Netlify vanzelf live.
+# Nieuwe nummers in data/kern.json kun je ook meteen ophalen met "Run workflow".
+on:
+  schedule:
+    - cron: "41 2 3 * *"   # de 3e van elke maand, 02:41 UTC
+  workflow_dispatch:
+    inputs:
+      alles:
+        description: "Alles opnieuw ophalen (anders alleen nummers die nog ontbreken)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sitedata
+  cancel-in-progress: false
+
+jobs:
+  verversen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Ophalen
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.alles }}" = "true" ]; then
+            python3 scripts/kern_ophalen.py --opnieuw
+          else
+            python3 scripts/kern_ophalen.py
+          fi
+      - name: Sitedata bouwen
+        run: python3 scripts/bouw_site_data.py
+      - name: Committen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data/ruw site/data
+          git diff --cached --quiet && exit 0
+          git commit -m "Nummers ververst op $(date +%Y-%m-%d)"
+          git pull --rebase origin main
+          git push
