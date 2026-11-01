@@ -1,0 +1,662 @@
+{
+ "drumstel": [
+  {
+   "bestand": "LL-Q35650 (ken)-Akopoly-báŋ (to gallop).wav",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/LL-Q35650_%28ken%29-Akopoly-b%C3%A1%C5%8B_%28to_gallop%29.wav?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:LL-Q35650_(ken)-Akopoly-b%C3%A1%C5%8B_(to_gallop).wav",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Speaker: Akopoly",
+   "omschrijving": "Audio pronunciation file from the Lingua Libre  project.",
+   "lengte": 1.0359183673469388
+  },
+  {
+   "bestand": "Simple duple drum pattern.mid",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Simple_duple_drum_pattern.mid?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Simple_duple_drum_pattern.mid",
+   "licentie": "Public domain",
+   "maker": "The original uploader was Hyacinth at English Wikipedia.",
+   "omschrijving": "Simple duple drum pattern: divides two beats into two.",
+   "lengte": 2.40234375
+  },
+  {
+   "bestand": "Gallop drum pattern.mid",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Gallop_drum_pattern.mid?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Gallop_drum_pattern.mid",
+   "licentie": "Public domain",
+   "maker": "Created by Hyacinth (talk) 00:49, 9 November 2010 using Sibelius 5.",
+   "omschrijving": "Heavy metal gallop rhythm as drum pattern.",
+   "lengte": 4.001953125
+  },
+  {
+   "bestand": "Double bass drum beat.mid",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Double_bass_drum_beat.mid?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Double_bass_drum_beat.mid",
+   "licentie": "Public domain",
+   "maker": "Hyacinth",
+   "omschrijving": "Double bass drum beat based on a standard rock backbeat pattern with a sixteenth note roll.",
+   "lengte": 4.001953125
+  },
+  {
+   "bestand": "Double-time rock pattern.mid",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Double-time_rock_pattern.mid?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Double-time_rock_pattern.mid",
+   "licentie": "Public domain",
+   "maker": "User:Hyacinth",
+   "omschrijving": "Double-time: notice the snare moves to the \"&\" beats (compared to \"regular\" time) while the hi-hat begins to subdivide sixteenth notes.",
+   "lengte": 4.80234375
+  },
+  {
+   "bestand": "Heavy metal gallop guitar triplet.mid",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Heavy_metal_gallop_guitar_triplet.mid?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Heavy_metal_gallop_guitar_triplet.mid",
+   "licentie": "Public domain",
+   "maker": "Hyacinth",
+   "omschrijving": "Heavy metal gallop variation featuring triplets.",
+   "lengte": 5.501953125
+  },
+  {
+   "bestand": "Rock beat ride cymbal.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Rock_beat_ride_cymbal.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Rock_beat_ride_cymbal.ogg",
+   "licentie": "CC BY-SA 3.0",
+   "maker": "No machine-readable author provided. Clngre~commonswiki assumed (based on copyright claims).",
+   "omschrijving": "An audio sample of a typical \"rock beat\" done with kick, snare, and ride cymbal",
+   "lengte": 7.65374149659864
+  },
+  {
+   "bestand": "Snare spill.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Snare_spill.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Snare_spill.ogg",
+   "licentie": "CC BY-SA 3.0",
+   "maker": "Mattgirling",
+   "omschrijving": "Example of w:spill (audio) on a drum kit recording.  This recording uses one microphone (a w:Shure SM57) directed at the snare drum.  The spill is where the other instruments (cymbals, bass drum etc.)",
+   "lengte": 8.781428571428572
+  },
+  {
+   "bestand": "Snare spill gated.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Snare_spill_gated.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Snare_spill_gated.ogg",
+   "licentie": "CC BY-SA 3.0",
+   "maker": "Mattgirling",
+   "omschrijving": "Example of w:spill (audio) on a drum kit recording.  This recording uses one microphone (a w:Shure SM57) directed at the snare drum.  A w:noise gate has been applied to reduce the spill of other instr",
+   "lengte": 8.781428571428572
+  },
+  {
+   "bestand": "Drum beat.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Drum_beat.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Drum_beat.ogg",
+   "licentie": "CC BY-SA 3.0",
+   "maker": "Mattgirling",
+   "omschrijving": "Example of a drum kit recording.  This recording uses microphone on the kick (AKG D112), snare (Shure SM57), rack tom (SM57), floor tom (SM57), ride (AKG C1000s) and two overheads (AKG C1000s).",
+   "lengte": 8.781428571428572
+  },
+  {
+   "bestand": "Overheads.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Overheads.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Overheads.ogg",
+   "licentie": "CC BY-SA 3.0",
+   "maker": "Mattgirling",
+   "omschrijving": "Recording of a drum kit, with only the w:overhead microphones.",
+   "lengte": 8.781428571428572
+  },
+  {
+   "bestand": "No overheads.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/5/59/No_overheads.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:No_overheads.ogg",
+   "licentie": "CC BY-SA 3.0",
+   "maker": "Mattgirling",
+   "omschrijving": "Recording of a drum kit, using spot microphones on each of the drums without any w:overhead microphones.",
+   "lengte": 8.781428571428572
+  }
+ ],
+ "kleine-trom": [
+  {
+   "bestand": "Snare drum roll bounce stroke Rrrr Llll.mid",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Snare_drum_roll_bounce_stroke_Rrrr_Llll.mid?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Snare_drum_roll_bounce_stroke_Rrrr_Llll.mid",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Hyacinth",
+   "omschrijving": "Bounce stroke snare roll. See: File:Snare drum roll bounce stroke Rrrr Llll.png",
+   "lengte": 2.384375
+  },
+  {
+   "bestand": "Gated reverb on snare drum (Valhalla Vintage verb plugin, \"large gated snare\" preset).ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Gated_reverb_on_snare_drum_%28Valhalla_Vintage_verb_plugin%2C_%22large_gated_snare%22_preset%29.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Gated_reverb_on_snare_drum_(Valhalla_Vintage_verb_plugin,_%22large_gated_snare%22_preset).ogg",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Skimel",
+   "omschrijving": "Gated reverb on snare drum (without then with the effect).",
+   "lengte": 2.993378684807256
+  },
+  {
+   "bestand": "Snare drum muffled.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Snare_drum_muffled.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Snare_drum_muffled.ogg",
+   "licentie": "CC BY-SA 3.0",
+   "maker": "No machine-readable author provided. Clngre~commonswiki assumed (based on copyright claims).",
+   "omschrijving": "An audio sample of a snare drum, muffled",
+   "lengte": 4.165102040816326
+  },
+  {
+   "bestand": "Snare drum roll example from The Gardner Modern Method for the Instruments of Percussion snare drum roll example 1 of 3.mid",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Snare_drum_roll_example_from_The_Gardner_Modern_Method_for_the_Instruments_of_Percussion_snare_drum_roll_example_1_of_3.mid?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Snare_drum_roll_example_from_The_Gardner_Modern_Method_for_the_Instruments_of_Percussion_snare_drum_roll_example_1_of_3.mid",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Hyacinth",
+   "omschrijving": "Example drum roll for practice by Gardner (1919). See: File:Snare drum roll example from The Gardner Modern Method for the Instruments of Percussion snare drum roll example 1 of 3.png",
+   "lengte": 4.17
+  },
+  {
+   "bestand": "Snare drum roll quarter note RRLLRRLL.mid",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Snare_drum_roll_quarter_note_RRLLRRLL.mid?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Snare_drum_roll_quarter_note_RRLLRRLL.mid",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Hyacinth",
+   "omschrijving": "Snare drum quarter note roll. See: File:Snare drum roll quarter note RRLLRRLL.png",
+   "lengte": 4.77
+  },
+  {
+   "bestand": "Snare drum unmuffled.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Snare_drum_unmuffled.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Snare_drum_unmuffled.ogg",
+   "licentie": "CC BY-SA 3.0",
+   "maker": "No machine-readable author provided. Clngre~commonswiki assumed (based on copyright claims).",
+   "omschrijving": "An audio sample of a snare drum, unmuffled",
+   "lengte": 4.816507936507937
+  },
+  {
+   "bestand": "Snare drum rim.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/5/51/Snare_drum_rim.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Snare_drum_rim.ogg",
+   "licentie": "CC BY-SA 3.0",
+   "maker": "No machine-readable author provided. Clngre~commonswiki assumed (based on copyright claims).",
+   "omschrijving": "An audio sample of a snare drum being hit on its rim",
+   "lengte": 5.045510204081633
+  },
+  {
+   "bestand": "Characteristic rock drum pattern rimshot.mid",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Characteristic_rock_drum_pattern_rimshot.mid?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Characteristic_rock_drum_pattern_rimshot.mid",
+   "licentie": "Public domain",
+   "maker": "Hyacinth",
+   "omschrijving": "Characteristic rock drum pattern with rimshot in place of snare",
+   "lengte": 5.3359321640625
+  },
+  {
+   "bestand": "Snare drum roll example from The Gardner Modern Method for the Instruments of Percussion snare drum roll example 2 of 3.mid",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Snare_drum_roll_example_from_The_Gardner_Modern_Method_for_the_Instruments_of_Percussion_snare_drum_roll_example_2_of_3.mid?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Snare_drum_roll_example_from_The_Gardner_Modern_Method_for_the_Instruments_of_Percussion_snare_drum_roll_example_2_of_3.mid",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Hyacinth",
+   "omschrijving": "Example drum roll for practice by Gardner (1919). See: File:Snare drum roll example from The Gardner Modern Method for the Instruments of Percussion snare drum roll example 2 of 3.png",
+   "lengte": 5.97
+  },
+  {
+   "bestand": "Kevin MacLeod assorted rimshots - 4-second roll.wav",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Kevin_MacLeod_assorted_rimshots_-_4-second_roll.wav?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Kevin_MacLeod_assorted_rimshots_-_4-second_roll.wav",
+   "licentie": "CC BY 3.0",
+   "maker": "Kevin MacLeod",
+   "omschrijving": "\"Pure utility. You need a rimshot? Get this. If you don't—ignore it. Includes 4 rolls.\"",
+   "lengte": 7.23514739229025
+  },
+  {
+   "bestand": "Snare rush Sibelius example.mid",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Snare_rush_Sibelius_example.mid?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Snare_rush_Sibelius_example.mid",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Hyacinth",
+   "omschrijving": "Snare drum playing a double whole note, a whole note, half notes, quarter, sixteenth, thirty second, sixty fourth notes, one hundred twenty eighth, 256th, 512th, and 1024th notes. Tempo: quarter note ",
+   "lengte": 7.442429617187501
+  },
+  {
+   "bestand": "Snare drum roll example from The Gardner Modern Method for the Instruments of Percussion snare drum roll example 3 of 3.mid",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Snare_drum_roll_example_from_The_Gardner_Modern_Method_for_the_Instruments_of_Percussion_snare_drum_roll_example_3_of_3.mid?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Snare_drum_roll_example_from_The_Gardner_Modern_Method_for_the_Instruments_of_Percussion_snare_drum_roll_example_3_of_3.mid",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Hyacinth",
+   "omschrijving": "Example drum roll for practice by Gardner (1919). See: File:Snare drum roll example from The Gardner Modern Method for the Instruments of Percussion snare drum roll example 3 of 3.png",
+   "lengte": 7.77
+  }
+ ],
+ "basgitaar": [
+  {
+   "bestand": "Four feel walking bass B.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Four_feel_walking_bass_B.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Four_feel_walking_bass_B.ogg",
+   "licentie": "CC BY 3.0",
+   "maker": "Serolillo",
+   "omschrijving": "Four feel walking bass line over Cm7 chord",
+   "lengte": 6.992698412698413
+  },
+  {
+   "bestand": "Two Feel Walking Bass B.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Two_Feel_Walking_Bass_B.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Two_Feel_Walking_Bass_B.ogg",
+   "licentie": "CC BY 2.5",
+   "maker": "Serolillo",
+   "omschrijving": "Two feel walking bass B",
+   "lengte": 7.064739229024943
+  },
+  {
+   "bestand": "Envelope filter slap bass (MXR M82).ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Envelope_filter_slap_bass_%28MXR_M82%29.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Envelope_filter_slap_bass_(MXR_M82).ogg",
+   "licentie": "CC BY 3.0",
+   "maker": "MooreMusicGuitars",
+   "omschrijving": "Audio example of the envelope filter effect (or autowah) on electric bass, played with the slap technique. Pedal is MXR M82 Bass Envelope Filter.",
+   "lengte": 10.0
+  },
+  {
+   "bestand": "Heavy metal gallop on bass with a pick.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Heavy_metal_gallop_on_bass_with_a_pick.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Heavy_metal_gallop_on_bass_with_a_pick.ogg",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Skimel",
+   "omschrijving": "Heavy metal gallop played on bass with a pick.",
+   "lengte": 14.334557823129252
+  },
+  {
+   "bestand": "Bassline played on a bass guitar using a pick.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Bassline_played_on_a_bass_guitar_using_a_pick.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bassline_played_on_a_bass_guitar_using_a_pick.ogg",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "OVRDRIVN32",
+   "omschrijving": "Bassline played on a bass guitar using a pick",
+   "lengte": 15.096780045351474
+  },
+  {
+   "bestand": "Fretless bass solo 1.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Fretless_bass_solo_1.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Fretless_bass_solo_1.ogg",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Skimel",
+   "omschrijving": "Fretless bass solo.",
+   "lengte": 18.0
+  },
+  {
+   "bestand": "Slap Bass line over an Am chord progression.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Slap_Bass_line_over_an_Am_chord_progression.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Slap_Bass_line_over_an_Am_chord_progression.ogg",
+   "licentie": "CC BY 2.5",
+   "maker": "Serolillo",
+   "omschrijving": "Slap Bass line over an Am chord progression",
+   "lengte": 19.45843537414966
+  },
+  {
+   "bestand": "Example of double tracking in a pop-rock song (3 guitar tracks).ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/4/46/Example_of_double_tracking_in_a_pop-rock_song_%283_guitar_tracks%29.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Example_of_double_tracking_in_a_pop-rock_song_(3_guitar_tracks).ogg",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Skimel",
+   "omschrijving": "Example of double tracking in a pop-rock song. First you hear drums, bass and one guitar track, then a second one and a third one is added. The last guitar part is played with a capo to enrich the sou",
+   "lengte": 22.666666666666668
+  },
+  {
+   "bestand": "Chorus on bass (amplitube ampeg chorus) sire v7.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Chorus_on_bass_%28amplitube_ampeg_chorus%29_sire_v7.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Chorus_on_bass_(amplitube_ampeg_chorus)_sire_v7.ogg",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Skimel",
+   "omschrijving": "Audio demo of chorus effect on bass (dry, then with chorus). Bass is a Sire V7 swamp ash, into Focusrite 18i8 soundcard. Chorus is an ampeg chorus simulation, into an ampeg amp sim by Amplitube.",
+   "lengte": 28.5
+  },
+  {
+   "bestand": "Funky Slap Bass line.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Funky_Slap_Bass_line.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Funky_Slap_Bass_line.ogg",
+   "licentie": "CC BY 2.5",
+   "maker": "Serolillo",
+   "omschrijving": "Funky Slap bassline over a A-Blues progression",
+   "lengte": 33.73814058956916
+  },
+  {
+   "bestand": "Fretless bass solo - harmonics.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Fretless_bass_solo_-_harmonics.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Fretless_bass_solo_-_harmonics.ogg",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Skimel",
+   "omschrijving": "Fretless bass solo putting the emphasis on harmonics.",
+   "lengte": 60.5
+  },
+  {
+   "bestand": "Phule phule dhole dhole (Rabindra Sangeet) on Electric guitar by Paramanu Sarkar.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Phule_phule_dhole_dhole_%28Rabindra_Sangeet%29_on_Electric_guitar_by_Paramanu_Sarkar.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Phule_phule_dhole_dhole_(Rabindra_Sangeet)_on_Electric_guitar_by_Paramanu_Sarkar.ogg",
+   "licentie": "CC BY 4.0",
+   "maker": "Paramanu Sarkar",
+   "omschrijving": "Phule phule dhole dhole Rabindra Sangeet on Guitar (VST) cover by Paramanu Sarkar.",
+   "lengte": 90.20833333333333
+  }
+ ],
+ "elektrische-gitaar": [
+  {
+   "bestand": "Electric guitar lick in the style of Chuck Berry.wav",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Electric_guitar_lick_in_the_style_of_Chuck_Berry.wav?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Electric_guitar_lick_in_the_style_of_Chuck_Berry.wav",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Include.aliment",
+   "omschrijving": "Electric guitar lick in the style of Chuck Berry",
+   "lengte": 5.619274376417233
+  },
+  {
+   "bestand": "Electric guitar neck humbucker (hotrail) - full vs split.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Electric_guitar_neck_humbucker_%28hotrail%29_-_full_vs_split.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Electric_guitar_neck_humbucker_(hotrail)_-_full_vs_split.ogg",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Skimel",
+   "omschrijving": "Sound comparison of an electric guitar humbucker (Kiesel TBH 60 neck pickup, hotrail) full and splitted on a Godin Artisan ST guitar.",
+   "lengte": 6.5
+  },
+  {
+   "bestand": "The Lick metal on guitar.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/The_Lick_metal_on_guitar.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:The_Lick_metal_on_guitar.ogg",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Skimel",
+   "omschrijving": "\"The lick\" played as a metal riff on electric guitar",
+   "lengte": 11.602290249433107
+  },
+  {
+   "bestand": "Guitar with fuzz.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Guitar_with_fuzz.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Guitar_with_fuzz.ogg",
+   "licentie": "CC BY-SA 3.0",
+   "maker": "No machine-readable author provided. Deltabeignet assumed (based on copyright claims).",
+   "omschrijving": "A sample of electric guitar power chords, with and without fuzz. Deltabeignet 20:47, 11 November 2005 (UTC)",
+   "lengte": 12.50525
+  },
+  {
+   "bestand": "Double tracked distorted electric guitar playing chords.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Double_tracked_distorted_electric_guitar_playing_chords.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Double_tracked_distorted_electric_guitar_playing_chords.ogg",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Skimel",
+   "omschrijving": "Audio example of double tracking with saturated electric guitars playing chords.",
+   "lengte": 14.377936507936507
+  },
+  {
+   "bestand": "Fast univibe (Amplitube simulation) on clean electric guitar.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Fast_univibe_%28Amplitube_simulation%29_on_clean_electric_guitar.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Fast_univibe_(Amplitube_simulation)_on_clean_electric_guitar.ogg",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Skimel",
+   "omschrijving": "Univibe effect at fast speed on electric guitar. Guitar is a Yamaha Pacifica 112, effect and amp simulation by Amplitube plugin",
+   "lengte": 18.0
+  },
+  {
+   "bestand": "Metal riff without and with noise gate (hard gating).wav",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Metal_riff_without_and_with_noise_gate_%28hard_gating%29.wav?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Metal_riff_without_and_with_noise_gate_(hard_gating).wav",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Skimel",
+   "omschrijving": "Démonstration de l'effet d'un noise gate sur une guitare électrique saturée.",
+   "lengte": 18.99
+  },
+  {
+   "bestand": "Guitar amp feedback - low rumble.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Guitar_amp_feedback_-_low_rumble.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Guitar_amp_feedback_-_low_rumble.ogg",
+   "licentie": "CC BY 4.0",
+   "maker": "Skimel",
+   "omschrijving": "Feedback with an electric guitar and amplifier.",
+   "lengte": 20.859115646258502
+  },
+  {
+   "bestand": "Electric guitar volume swells (violoning) with Marshall amp sim with delay and reverb (bridge humbucker).ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Electric_guitar_volume_swells_%28violoning%29_with_Marshall_amp_sim_with_delay_and_reverb_%28bridge_humbucker%29.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Electric_guitar_volume_swells_(violoning)_with_Marshall_amp_sim_with_delay_and_reverb_(bridge_humbucker).ogg",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Skimel",
+   "omschrijving": "Violoning effect on electric guitar with a volume pedal: the initial attack of the note is cut, giving the sound a violin-like character. Distorsion gives the notes sustain, reinforced by delay and re",
+   "lengte": 49.01
+  },
+  {
+   "bestand": "Phule phule dhole dhole (Rabindra Sangeet) on Electric guitar by Paramanu Sarkar.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Phule_phule_dhole_dhole_%28Rabindra_Sangeet%29_on_Electric_guitar_by_Paramanu_Sarkar.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Phule_phule_dhole_dhole_(Rabindra_Sangeet)_on_Electric_guitar_by_Paramanu_Sarkar.ogg",
+   "licentie": "CC BY 4.0",
+   "maker": "Paramanu Sarkar",
+   "omschrijving": "Phule phule dhole dhole Rabindra Sangeet on Guitar (VST) cover by Paramanu Sarkar.",
+   "lengte": 90.20833333333333
+  },
+  {
+   "bestand": "Pran chai chokkhu na chay (Rabindra Sangeet) on Electric guitar by Paramanu Sarkar.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Pran_chai_chokkhu_na_chay_%28Rabindra_Sangeet%29_on_Electric_guitar_by_Paramanu_Sarkar.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Pran_chai_chokkhu_na_chay_(Rabindra_Sangeet)_on_Electric_guitar_by_Paramanu_Sarkar.ogg",
+   "licentie": "CC BY 4.0",
+   "maker": "Paramanu Sarkar",
+   "omschrijving": "Pran chai chokkhu na chay Rabindra Sangeet on Guitar (VST) cover by Paramanu Sarkar.",
+   "lengte": 100.20833333333333
+  },
+  {
+   "bestand": "Dariye achho tumi amar (Rabindra Sangeet) on Electric guitar by Paramanu Sarkar.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Dariye_achho_tumi_amar_%28Rabindra_Sangeet%29_on_Electric_guitar_by_Paramanu_Sarkar.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Dariye_achho_tumi_amar_(Rabindra_Sangeet)_on_Electric_guitar_by_Paramanu_Sarkar.ogg",
+   "licentie": "CC BY 4.0",
+   "maker": "Paramanu Sarkar",
+   "omschrijving": "Dariye achho tumi amar Rabindra Sangeet on Guitar (VST) cover by Paramanu Sarkar.",
+   "lengte": 170.83333333333334
+  }
+ ],
+ "synthesizer": [
+  {
+   "bestand": "LL-Q188 (deu)-WangleLine-Analog-Synthesizer.wav",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/1/13/LL-Q188_%28deu%29-WangleLine-Analog-Synthesizer.wav?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:LL-Q188_(deu)-WangleLine-Analog-Synthesizer.wav",
+   "licentie": "CC BY 4.0",
+   "maker": "Speaker: WangleLine",
+   "omschrijving": "Audio pronunciation file from the Lingua Libre  project.",
+   "lengte": 1.7653333333333334
+  },
+  {
+   "bestand": "LL-Q188 (deu)-WangleLine-Virtuell-analoger Synthesizer.wav",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/05/LL-Q188_%28deu%29-WangleLine-Virtuell-analoger_Synthesizer.wav?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:LL-Q188_(deu)-WangleLine-Virtuell-analoger_Synthesizer.wav",
+   "licentie": "CC BY 4.0",
+   "maker": "Speaker: WangleLine",
+   "omschrijving": "Audio pronunciation file from the Lingua Libre  project.",
+   "lengte": 2.421333333333333
+  },
+  {
+   "bestand": "Subtractive study for sound synthesizers and ensemble.wav",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Subtractive_study_for_sound_synthesizers_and_ensemble.wav?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Subtractive_study_for_sound_synthesizers_and_ensemble.wav",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Buchla200e",
+   "omschrijving": "This is a part of Residbegovic composition \"Subtractive study for sound synthesizer and ensemble\".",
+   "lengte": 4.073605442176871
+  },
+  {
+   "bestand": "Synth filter sweeps.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Synth_filter_sweeps.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Synth_filter_sweeps.ogg",
+   "licentie": "Public domain",
+   "maker": "No machine-readable author provided. Syblex~commonswiki assumed (based on copyright claims).",
+   "omschrijving": "An example of a classic analog synthesizer sound. Four sawtooth bass filter sweeps with gradually increasing resonance.",
+   "lengte": 10.221133786848073
+  },
+  {
+   "bestand": "Melody vibrating synth.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Melody_vibrating_synth.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Melody_vibrating_synth.ogg",
+   "licentie": "Public domain",
+   "maker": "stephan",
+   "omschrijving": "Title melody - vibrating synth pad",
+   "lengte": 10.81469387755102
+  },
+  {
+   "bestand": "Synth sound with three oscillators detuned (dry, -11, +11 then osc 1 and 2, then the three together).ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Synth_sound_with_three_oscillators_detuned_%28dry%2C_-11%2C_%2B11_then_osc_1_and_2%2C_then_the_three_together%29.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Synth_sound_with_three_oscillators_detuned_(dry,_-11,_%2B11_then_osc_1_and_2,_then_the_three_together).ogg",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Skimel",
+   "omschrijving": "Synth sound with three oscillators detuned (dry, -11 cents, +11 cents). Each oscillator is played individually, then osc 1 and 2 played together (producing a chorus sound), then the three together (pr",
+   "lengte": 15.021904761904763
+  },
+  {
+   "bestand": "Neutron paraphonic behaviour.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Neutron_paraphonic_behaviour.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Neutron_paraphonic_behaviour.ogg",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Schminnte",
+   "omschrijving": "Recording showing the paraphonic behaviour of the Behringer Neutron synthesizer",
+   "lengte": 16.370408163265306
+  },
+  {
+   "bestand": "Yamaha-Synthesizer-CS1X-synthsound.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Yamaha-Synthesizer-CS1X-synthsound.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Yamaha-Synthesizer-CS1X-synthsound.ogg",
+   "licentie": "CC BY-SA 3.0",
+   "maker": "Musicproducer",
+   "omschrijving": "typical synthesizer sound of the Yamaha CS1X",
+   "lengte": 31.74206349206349
+  },
+  {
+   "bestand": "Roland jx3p demo.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Roland_jx3p_demo.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Roland_jx3p_demo.ogg",
+   "licentie": "Public domain",
+   "maker": "No machine-readable author provided. Ziggystar assumed (based on copyright claims).",
+   "omschrijving": "Some demonstration sounds of a Roland JX-3P synthesizer.",
+   "lengte": 38.630204081632655
+  },
+  {
+   "bestand": "Vox Humana Polymoog.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Vox_Humana_Polymoog.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Vox_Humana_Polymoog.ogg",
+   "licentie": "CC0",
+   "maker": "Raymangold22",
+   "omschrijving": "Here Vox Humana is played, first starting with the default preset mode and engaging other variations to change the sound.",
+   "lengte": 61.56770975056689
+  },
+  {
+   "bestand": "KorgMS20 Scale Sonology Esmuc.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/69/KorgMS20_Scale_Sonology_Esmuc.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:KorgMS20_Scale_Sonology_Esmuc.ogg",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "onbekend",
+   "omschrijving": "0:00-0:04 32'-16'; 0:04-0:08 32'-8'; 0:08-0:12 32'-4'; 0:12-0:16 32'-2'; 0:16-0:20 16'-16'; 0:20-0:24 16'-8'; 0:04-0:28 16'-4'; 0:28-0:32 16'-2'; 0:32-0:36 8'-16'; 0:36-0:40 8'-8'; 0:40-0:44 8'-4'; 0:",
+   "lengte": 63.79102040816326
+  },
+  {
+   "bestand": "MicroKORG Demo.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/MicroKORG_Demo.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:MicroKORG_Demo.ogg",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Autojak234",
+   "omschrijving": "Radio by Emile's Telegraphic Transmission Device",
+   "lengte": 63.98412698412698
+  }
+ ],
+ "drumcomputer": [
+  {
+   "bestand": "Brummdose.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Brummdose.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Brummdose.ogg",
+   "licentie": "Public domain",
+   "maker": "Achates",
+   "omschrijving": "Brummdose",
+   "lengte": 0.1338750000000002
+  },
+  {
+   "bestand": "Nl-beatboxe.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Nl-beatboxe.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Nl-beatboxe.ogg",
+   "licentie": "CC0",
+   "maker": "Marcel coenders",
+   "omschrijving": "Wikiwoordenboek audio",
+   "lengte": 1.55
+  },
+  {
+   "bestand": "Bubble 01 nevit.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Bubble_01_nevit.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Bubble_01_nevit.ogg",
+   "licentie": "CC BY-SA 3.0",
+   "maker": "Nevit Dilmen (talk)",
+   "omschrijving": "Bubble sound effect",
+   "lengte": 2.089795918367347
+  },
+  {
+   "bestand": "RelaxedElectro@100BPM.wav",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/5/55/RelaxedElectro%40100BPM.wav?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:RelaxedElectro@100BPM.wav",
+   "licentie": "CC BY-SA 3.0",
+   "maker": "Wil Sinclair",
+   "omschrijving": "Slowish electro beat with vintage drum machine. 100BPM.",
+   "lengte": 2.4
+  },
+  {
+   "bestand": "Drum Machine.wav",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Drum_Machine.wav?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Drum_Machine.wav",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Babbi jabbi",
+   "omschrijving": "bra beat",
+   "lengte": 4.32453514739229
+  },
+  {
+   "bestand": "Rock beat ride cymbal.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Rock_beat_ride_cymbal.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Rock_beat_ride_cymbal.ogg",
+   "licentie": "CC BY-SA 3.0",
+   "maker": "No machine-readable author provided. Clngre~commonswiki assumed (based on copyright claims).",
+   "omschrijving": "An audio sample of a typical \"rock beat\" done with kick, snare, and ride cymbal",
+   "lengte": 7.65374149659864
+  },
+  {
+   "bestand": "TR-909 House Beat.wav",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/TR-909_House_Beat.wav?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:TR-909_House_Beat.wav",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Thejames428",
+   "omschrijving": "The opened hi-hat cymbal is commonly used throughout all styles of house music.",
+   "lengte": 8.01562358276644
+  },
+  {
+   "bestand": "909 house pattern.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/909_house_pattern.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:909_house_pattern.ogg",
+   "licentie": "CC BY-SA 4.0",
+   "maker": "Christian Carville",
+   "omschrijving": "A house pattern on the Roland TR-909 drum machine. There is a four-on-the-floor bass drum pattern, the clap sounds on every backbeat and the fourth off-beat on each bar, and the open hi-hat sounds on ",
+   "lengte": 8.094013605442177
+  },
+  {
+   "bestand": "Rock beat hi hat.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Rock_beat_hi_hat.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Rock_beat_hi_hat.ogg",
+   "licentie": "CC BY-SA 3.0",
+   "maker": "No machine-readable author provided. Clngre~commonswiki assumed (based on copyright claims).",
+   "omschrijving": "An audio sample of a typical \"rock beat\" done with kick, snare, and hi-hat",
+   "lengte": 9.167392290249433
+  },
+  {
+   "bestand": "808vstsample.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/808vstsample.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:808vstsample.ogg",
+   "licentie": "CC BY-SA 3.0",
+   "maker": "Symphonium264",
+   "omschrijving": "Sound example from the official en:Roland TR-808 VST Plugin. Sequencing was done with the VST and en:FL Studio.",
+   "lengte": 11.345578231292517
+  },
+  {
+   "bestand": "TR-909 sound example.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/TR-909_sound_example.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:TR-909_sound_example.ogg",
+   "licentie": "CC BY-SA 3.0",
+   "maker": "TBergman",
+   "omschrijving": "Sound example from a Roland TR-909 drum machine.",
+   "lengte": 16.124988662131518
+  },
+  {
+   "bestand": "808cbtrig 01.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/c/c7/808cbtrig_01.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "pagina": "https://commons.wikimedia.org/wiki/File:808cbtrig_01.ogg",
+   "licentie": "CC BY-SA 3.0",
+   "maker": "Theofanis Siassios",
+   "omschrijving": "Recording of various patterns played by a TR-808 drum machine, with the cowbell trigger controlling the sequencer of a JX3P",
+   "lengte": 18.923083900226757
+  }
+ ]
+}

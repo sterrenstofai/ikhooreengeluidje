@@ -196,5 +196,50 @@
   "bestanden": [
    "https://theremin.music.uiowa.edu/sound files/MIS/Piano_Other/piano/Piano.mf.C6.aiff"
   ]
+ },
+ "drumstel": {
+  "pad": "/klanken/drumstel.mp3",
+  "duur": 5.0,
+  "bron": "Wikimedia Commons",
+  "bron_url": "https://commons.wikimedia.org/wiki/File:LL-Q35650_(ken)-Akopoly-b%C3%A1%C5%8B_(to_gallop).wav",
+  "bestand": "LL-Q35650 (ken)-Akopoly-báŋ (to gallop).wav",
+  "licentie": "CC BY-SA 4.0",
+  "maker": "Speaker: Akopoly"
+ },
+ "basgitaar": {
+  "pad": "/klanken/basgitaar.mp3",
+  "duur": 5.0,
+  "bron": "Wikimedia Commons",
+  "bron_url": "https://commons.wikimedia.org/wiki/File:Four_feel_walking_bass_B.ogg",
+  "bestand": "Four feel walking bass B.ogg",
+  "licentie": "CC BY 3.0",
+  "maker": "Serolillo"
+ },
+ "elektrische-gitaar": {
+  "pad": "/klanken/elektrische-gitaar.mp3",
+  "duur": 5.0,
+  "bron": "Wikimedia Commons",
+  "bron_url": "https://commons.wikimedia.org/wiki/File:Electric_guitar_lick_in_the_style_of_Chuck_Berry.wav",
+  "bestand": "Electric guitar lick in the style of Chuck Berry.wav",
+  "licentie": "CC BY-SA 4.0",
+  "maker": "Include.aliment"
+ },
+ "synthesizer": {
+  "pad": "/klanken/synthesizer.mp3",
+  "duur": 5.0,
+  "bron": "Wikimedia Commons",
+  "bron_url": "https://commons.wikimedia.org/wiki/File:LL-Q188_(deu)-WangleLine-Analog-Synthesizer.wav",
+  "bestand": "LL-Q188 (deu)-WangleLine-Analog-Synthesizer.wav",
+  "licentie": "CC BY 4.0",
+  "maker": "Speaker: WangleLine"
+ },
+ "drumcomputer": {
+  "pad": "/klanken/drumcomputer.mp3",
+  "duur": 5.0,
+  "bron": "Wikimedia Commons",
+  "bron_url": "https://commons.wikimedia.org/wiki/File:Brummdose.ogg",
+  "bestand": "Brummdose.ogg",
+  "licentie": "Public domain",
+  "maker": "Achates"
  }
 }
