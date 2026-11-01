@@ -57,7 +57,8 @@ def zoek(termen):
         gezien.update(titels)
         if titels:
             uit += info(titels)
-    vrij = [k for k in uit if VRIJ.search(k["licentie"])]
+    # geen uitspraakbestanden (Lingua Libre, LL-...) en geen MIDI: dat zijn geen opnames van het instrument
+    vrij = [k for k in uit if VRIJ.search(k["licentie"]) and not k["bestand"].startswith("LL-") and not k["bestand"].lower().endswith((".mid", ".midi"))]
     vrij.sort(key=lambda k: (k["lengte"] is None, (k["lengte"] or 0) > 60, k["lengte"] or 0))
     return vrij
 
