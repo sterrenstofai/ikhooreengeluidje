@@ -22,6 +22,11 @@
   status = 200
 
 [[redirects]]
+  from = "/kinderen"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
   from = "/ontdek"
   to = "/index.html"
   status = 200
@@ -29,7 +34,7 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.mzstatic.com; font-src 'self'; connect-src 'self' https://audio-ssl.itunes.apple.com; media-src https://audio-ssl.itunes.apple.com blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'none'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.mzstatic.com; font-src 'self'; connect-src 'self' https://audio-ssl.itunes.apple.com; media-src 'self' https://audio-ssl.itunes.apple.com blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'none'"
     Referrer-Policy = "no-referrer"
     Permissions-Policy = "geolocation=(), camera=(), microphone=(), interest-cohort=()"
     X-Content-Type-Options = "nosniff"
@@ -38,3 +43,13 @@
   for = "/fonts/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/klanken/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/fotos/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

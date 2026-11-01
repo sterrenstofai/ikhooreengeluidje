@@ -4,18 +4,19 @@ import { F_LAAG, F_HOOG } from "./geluid.js";
 const app = document.getElementById("app");
 const TITEL = "ikhooreengeluidje";
 let paginaDoeken = [];
+let kinderModule = null;
 
 /* ---------- Data ---------- */
 
 let _data = null;
 async function data() {
   if (_data) return _data;
-  const [nummers, instrumenten, fotos] = await Promise.all(
-    ["/data/nummers.json", "/data/instrumenten.json", "/data/fotos.json"].map((u) => fetch(u).then((r) => (r.ok ? r.json() : {})).catch(() => ({}))),
+  const [nummers, instrumenten, fotos, klanken] = await Promise.all(
+    ["/data/nummers.json", "/data/instrumenten.json", "/data/fotos.json", "/data/klanken.json"].map((u) => fetch(u).then((r) => (r.ok ? r.json() : {})).catch(() => ({}))),
   );
   const perSlug = Object.fromEntries(nummers.map((n) => [n.slug, n]));
   const perInstrument = Object.fromEntries(instrumenten.map((i) => [i.key, i]));
-  _data = { nummers, instrumenten, perSlug, perInstrument, fotos };
+  _data = { nummers, instrumenten, perSlug, perInstrument, fotos, klanken };
   return _data;
 }
 
@@ -86,11 +87,17 @@ async function toon() {
     for (const d of paginaDoeken) G.ontkoppelDoek(d);
     paginaDoeken = [];
     document.body.classList.toggle("onder-kop", !pad.startsWith("/nummer/"));
+    document.body.classList.toggle("kindermodus", pad === "/kinderen");
+    kinderModule?.verlaat();
     if (pad === "/") home(D);
     else if (pad.startsWith("/nummer/")) nummerPagina(D, decodeURIComponent(pad.slice(8)));
     else if (pad === "/nummers") index(D);
     else if (pad === "/instrumenten") instrumentenIndex(D);
     else if (pad.startsWith("/instrument/")) instrumentPagina(D, decodeURIComponent(pad.slice(12)));
+    else if (pad === "/kinderen") {
+      document.title = `Instrumenten voor kinderen · ${TITEL}`;
+      import("./kinderen.js").then((K) => { kinderModule = K; K.kinderPagina(app, D.fotos, D.klanken); });
+    }
     else if (pad === "/ontdek") {
       const kies = D.nummers.filter((n) => n.preview);
       return naar(`/nummer/${kies[Math.floor(Math.random() * kies.length)].slug}`, true);

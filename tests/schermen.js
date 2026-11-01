@@ -11,6 +11,7 @@ const PAGINAS = [
   ["nummer-geluid", "/nummer/billie-jean", "Geluidsbeeld"],
   ["instrumenten", "/instrumenten"],
   ["hoe", "/hoe-dit-werkt"],
+  ["kinderen", "/kinderen"],
 ];
 (async () => {
   require("fs").mkdirSync(UIT, { recursive: true });
