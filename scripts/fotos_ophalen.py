@@ -9,7 +9,7 @@ met maker en licentie, die op de site bij de foto staan.
 Elke foto moet je daarna zelf bekijken: P18 is niet altijd een goede foto van
 het instrument. Een slechte vervang je met 'bestand' in foto_bronnen.json.
 """
-import io, json, re, sys, time, urllib.error, urllib.parse, urllib.request
+import html, io, json, re, sys, time, urllib.error, urllib.parse, urllib.request
 from pathlib import Path
 from PIL import Image
 
@@ -44,7 +44,7 @@ def info(bestand):
         "prop": "imageinfo", "iiprop": "url|extmetadata", "iiurlwidth": 1000}))
     ii = d["query"]["pages"][0]["imageinfo"][0]
     m = ii.get("extmetadata", {})
-    tekst = lambda k: re.sub(r"<[^>]+>", "", m.get(k, {}).get("value", "")).strip()
+    tekst = lambda k: html.unescape(re.sub(r"<[^>]+>", "", m.get(k, {}).get("value", ""))).strip().split("\n")[0].strip()
     return {"bestand": bestand, "thumb": ii.get("thumburl") or ii["url"], "pagina": ii["descriptionurl"],
             "licentie": tekst("LicenseShortName"), "maker": tekst("Artist")[:120] or "onbekend"}
 

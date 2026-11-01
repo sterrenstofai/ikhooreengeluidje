@@ -10,16 +10,36 @@ let paginaDoeken = [];
 let _data = null;
 async function data() {
   if (_data) return _data;
-  const [nummers, instrumenten] = await Promise.all(
-    ["/data/nummers.json", "/data/instrumenten.json"].map((u) => fetch(u).then((r) => r.json())),
+  const [nummers, instrumenten, fotos] = await Promise.all(
+    ["/data/nummers.json", "/data/instrumenten.json", "/data/fotos.json"].map((u) => fetch(u).then((r) => (r.ok ? r.json() : {})).catch(() => ({}))),
   );
   const perSlug = Object.fromEntries(nummers.map((n) => [n.slug, n]));
   const perInstrument = Object.fromEntries(instrumenten.map((i) => [i.key, i]));
-  _data = { nummers, instrumenten, perSlug, perInstrument };
+  _data = { nummers, instrumenten, perSlug, perInstrument, fotos };
   return _data;
 }
 
 /* ---------- Hulpjes ---------- */
+
+// Foto van een instrument of apparaat, met maker en licentie eronder (verplicht bij CC BY en CC BY-SA)
+const APPARAAT_SLEUTEL = (naam) => {
+  const n = naam.toLowerCase();
+  if (n.includes("cr-78")) return "apparaat:roland-cr-78";
+  if (n.includes("prophet")) return "apparaat:prophet-5";
+  if (n.includes("linndrum")) return "apparaat:linndrum";
+  if (n.includes("tr-808")) return "apparaat:roland-tr-808";
+  if (n.includes("dmx")) return "apparaat:oberheim-dmx";
+  if (n.includes("moog")) return "apparaat:moog";
+  if (n.includes("clavinet")) return "apparaat:hohner-clavinet";
+  return null;
+};
+function foto(D, sleutel, { onderschrift = true, klein = false } = {}) {
+  const f = sleutel && D.fotos?.[sleutel];
+  if (!f) return "";
+  const img = `<img src="${f.pad}" alt="" loading="lazy" width="${f.breed}" height="${f.hoog}">`;
+  if (!onderschrift) return `<span class="foto${klein ? " foto-klein" : ""}">${img}</span>`;
+  return `<figure class="foto">${img}<figcaption>Foto: ${esc(f.maker.length > 60 ? f.maker.slice(0, 58).trim() + "…" : f.maker)}, <a href="${esc(f.pagina)}" rel="noopener">${esc(f.licentie)}</a>, via Wikimedia Commons</figcaption></figure>`;
+}
 
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 const norm = (s) => String(s ?? "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9 ]/g, "");
@@ -65,7 +85,7 @@ async function toon() {
   const doe = () => {
     for (const d of paginaDoeken) G.ontkoppelDoek(d);
     paginaDoeken = [];
-    document.body.classList.toggle("onder-kop", true);
+    document.body.classList.toggle("onder-kop", !pad.startsWith("/nummer/"));
     if (pad === "/") home(D);
     else if (pad.startsWith("/nummer/")) nummerPagina(D, decodeURIComponent(pad.slice(8)));
     else if (pad === "/nummers") index(D);
@@ -230,7 +250,7 @@ function paneel(D, n, k) {
 }
 
 function paneelInstrumenten(D, n) {
-  const app_ = n.apparaten.map((a) => `<li class="apparaat"><span class="apparaat-soort">${esc(a.soort)}</span><strong>${esc(a.naam)}</strong><span>${esc(a.wat)}</span>${bronLink(a.bron)}</li>`).join("");
+  const app_ = n.apparaten.map((a) => `<li class="apparaat">${foto(D, APPARAAT_SLEUTEL(a.naam), { onderschrift: false, klein: true })}<span class="apparaat-soort">${esc(a.soort)}</span><strong>${esc(a.naam)}</strong><span>${esc(a.wat)}</span>${bronLink(a.bron)}</li>`).join("");
   const rijen = n.credits.map((c) => {
     const i = D.perInstrument[c.key];
     const wie = c.wie.length
@@ -322,14 +342,16 @@ function stamboom(D, n) {
   const naam = (s) => { const d = s.slug && D.perSlug[s.slug]; return d ? d.titel : s.titel; };
   const knoop = (s, y, i, aantal) => {
     const x = ((i + 1) / (aantal + 1)) * 100;
-    const t = esc(naam(s).length > 16 ? naam(s).slice(0, 15) + "…" : naam(s));
-    const inh = `<circle cx="${x}" cy="${y}" r="4"/><text x="${x}" y="${y + (y < 50 ? -8 : 14)}">${t}</text>`;
+    const max = aantal > 2 ? 13 : 18;
+    const t = esc(naam(s).length > max ? naam(s).slice(0, max - 1).trim() + "…" : naam(s));
+    const dy = (y < 50 ? -8 : 13) + (aantal > 2 && i % 2 ? (y < 50 ? -8 : 8) : 0); // om en om hoger en lager
+    const inh = `<circle cx="${x}" cy="${y}" r="3.5"/><text x="${x}" y="${y + dy}">${t}</text>`;
     return { x, svg: s.slug ? `<a href="/nummer/${s.slug}" data-link>${inh}</a>` : inh };
   };
-  const b = boven.map((s, i) => knoop(s, 26, i, boven.length)), o = onder.map((s, i) => knoop(s, 76, i, onder.length));
+  const b = boven.map((s, i) => knoop(s, 30, i, boven.length)), o = onder.map((s, i) => knoop(s, 72, i, onder.length));
   return `<p class="omgeving-label">Stamboom</p>
   <svg viewBox="0 0 100 100" aria-hidden="true" class="stamboom-svg">
-    ${b.map((k) => `<line x1="${k.x}" y1="26" x2="50" y2="51"/>`).join("")}${o.map((k) => `<line x1="50" y1="51" x2="${k.x}" y2="76"/>`).join("")}
+    ${b.map((k) => `<line x1="${k.x}" y1="30" x2="50" y2="51"/>`).join("")}${o.map((k) => `<line x1="50" y1="51" x2="${k.x}" y2="72"/>`).join("")}
     <rect x="38" y="45" width="24" height="12" rx="6" class="stamboom-hier"/>
     ${b.map((k) => k.svg).join("")}${o.map((k) => k.svg).join("")}
   </svg>`;
@@ -345,9 +367,9 @@ function instrumentenIndex(D) {
     <div class="blok-kop"><h1 class="index-kop">Instrumenten</h1><span class="mono zacht">${D.instrumenten.length} in deze nummers</span></div>
     ${Object.entries(GROEPEN).map(([g, naam]) => {
       const lijst = D.instrumenten.filter((i) => i.groep === g);
-      return lijst.length ? `<h2 class="tussenkop">${naam}</h2><ul class="instr-lijst">${lijst.map((i) => `<li><a href="/instrument/${i.key}" data-link><strong>${esc(i.nl)}</strong><span class="mono zacht">${i.nummers.length} ${i.nummers.length === 1 ? "nummer" : "nummers"}</span></a></li>`).join("")}</ul>` : "";
+      return lijst.length ? `<h2 class="tussenkop">${naam}</h2><ul class="instr-lijst">${lijst.map((i) => `<li><a href="/instrument/${i.key}" data-link>${foto(D, i.key, { onderschrift: false, klein: true })}<strong>${esc(i.nl)}</strong><span class="mono zacht">${i.nummers.length} ${i.nummers.length === 1 ? "nummer" : "nummers"}</span></a></li>`).join("")}</ul>` : "";
     }).join("")}
-    <p class="noot zacht">Foto's van de instrumenten komen in een volgende stap, uit open collecties (Wikimedia Commons en het Metropolitan Museum).</p>
+    <p class="noot zacht">Foto's uit Wikimedia Commons, onder een vrije licentie. De maker staat bij de foto op de pagina van elk instrument.</p>
   </section>`;
 }
 
@@ -361,6 +383,7 @@ function instrumentPagina(D, key) {
     <a class="terug" href="/instrumenten" data-link>← Alle instrumenten</a>
     ${etiket(GROEPEN[i.groep])}
     <h1 class="index-kop">${esc(hoofd)}</h1>
+    ${foto(D, key)}
     <p class="held-sub">In ${nummers.length === 1 ? "dit nummer" : `deze ${nummers.length} nummers`} hoor je ${esc(i.lidwoord)} ${esc(i.nl)}.</p>
     <div class="raster nummers">${nummers.map(kaart).join("")}</div>
   </section>`;
