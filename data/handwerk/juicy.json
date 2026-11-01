@@ -6,5 +6,9 @@
    "wat": "De muziek onder de rap is een stuk uit Juicy Fruit.",
    "bron": "https://en.wikipedia.org/wiki/Juicy_(The_Notorious_B.I.G._song)"
   }
- ]
+ ],
+ "tempo": {
+  "bpm": 96,
+  "bron": "volgens Deezer"
+ }
 }

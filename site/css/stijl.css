@@ -729,3 +729,26 @@ a.sample-naam:hover strong { text-decoration: underline; }
   .sp-laan { grid-template-columns: 1fr auto; }
   .sp-tijdlijn-vak { grid-column: 1 / -1; }
 }
+
+/* ---------- Simulatie van de sporen ---------- */
+.paneel-sporen-binnen { max-width: 64rem; }
+.sim-kop { display: grid; gap: .5rem; justify-items: start; }
+.sim-kop .label { margin: 0; }
+.sim-uitleg { margin: 0; font-size: .95rem; line-height: 1.5; max-width: 44rem; }
+.sim-bediening { display: flex; align-items: center; gap: 1rem; margin: 1rem 0; }
+.sim-tempo { font-size: .85rem; color: var(--inkt-zacht); }
+.sim-banen { display: grid; gap: .4rem; }
+.sim-baan { display: grid; grid-template-columns: minmax(8rem, 11rem) auto minmax(0, 1fr); gap: .3rem .8rem; align-items: center; background: var(--papier-licht); border-radius: 14px; padding: .5rem .7rem; transition: opacity var(--snel); }
+.sim-baan.uit { opacity: .4; }
+.sim-apparaat { background: color-mix(in srgb, var(--mint) 55%, var(--papier)); }
+.sim-baan-kop { display: grid; min-width: 0; }
+.sim-baan-kop strong { font: 400 1.08rem/1.15 var(--kop); letter-spacing: -.01em; overflow-wrap: anywhere; }
+.sim-baan-kop span { font-size: .72rem; line-height: 1.3; overflow-wrap: anywhere; }
+.sim-baan-knoppen { display: flex; gap: .3rem; }
+.sim-baan .sp-knop { min-height: 34px; min-width: 3.8rem; font-size: .8rem; }
+.sim-rol { width: 100%; height: 58px; display: block; background: var(--papier); border-radius: 6px; }
+.sim-eigen { margin-top: 2.2rem; padding-top: 1.2rem; border-top: 1px solid var(--lijn); max-width: 44rem; }
+@media (max-width: 720px) {
+  .sim-baan { grid-template-columns: 1fr auto; }
+  .sim-rol { grid-column: 1 / -1; }
+}

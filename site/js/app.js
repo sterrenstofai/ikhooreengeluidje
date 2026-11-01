@@ -91,6 +91,7 @@ async function toon() {
     kinderModule?.verlaat();
     ozModule?.verlaat();
     sporenModule?.verlaat();
+    simOpruimen?.(); simOpruimen = null;
     if (pad === "/") home(D);
     else if (pad.startsWith("/nummer/")) nummerPagina(D, decodeURIComponent(pad.slice(8)));
     else if (pad === "/nummers") index(D);
@@ -226,7 +227,7 @@ function nummerPagina(D, slug) {
     prod.productie ? ["Productie", esc(prod.productie.join(", "))] : null,
     ["Status", n.nagekeken ? `<span class="label">nagekeken</span>` : `<span class="label label-zacht">niet nagekeken</span>`],
   ].filter(Boolean);
-  const startTab = "instrumenten";
+  const startTab = "sporen";
   app.innerHTML = `
   <section class="scherm" data-nummer="${n.slug}">
     <div class="podium">
@@ -252,7 +253,13 @@ function nummerPagina(D, slug) {
   kiesTab(n, startTab);
 }
 
+let simOpruimen = null;
 function kiesTab(n, tab) {
+  simOpruimen?.(); simOpruimen = null;
+  if (tab === "sporen") {
+    const vak = app.querySelector("[data-sim]");
+    if (vak) import("./simulatie.js").then((S) => { if (!vak.isConnected) return; simOpruimen = S.simulatie(vak, n, _data.instrumenten, n.tempo); });
+  }
   for (const b of app.querySelectorAll("[data-tab]")) b.setAttribute("aria-selected", b.dataset.tab === tab);
   for (const p of app.querySelectorAll(".podium-paneel")) p.hidden = p.id !== `paneel-${tab}`;
   for (const d of paginaDoeken) G.ontkoppelDoek(d);
@@ -327,12 +334,13 @@ function paneelGeluidsbeeld(n) {
 }
 
 function paneelSporen(n) {
-  return `<div class="paneel-binnen">
-    ${etiket("Sporen")}
-    <p class="sporen-kop">Hoor elk instrument apart.</p>
-    <p>In de studio wordt elk instrument op een eigen spoor opgenomen. Die sporen zijn bijna nooit openbaar. Een computerprogramma kan wel proberen de zang, de drums en de bas uit een opname los te halen. Dat is altijd een schatting: er lekt altijd wat van de rest door.</p>
-    <p>Het fragment van 30 seconden mogen we niet bewerken. Heb je ${esc(n.titel)} zelf als muziekbestand? Open het dan hier, in je eigen browser. Er wordt niets geüpload.</p>
-    <p><a class="knop-pil knop-accent" href="/sporen" data-link>Open je eigen muziekbestand</a></p>
+  return `<div class="paneel-binnen paneel-sporen-binnen">
+    <div class="sim" data-sim></div>
+    <div class="sim-eigen">
+      ${etiket("Echte sporen uit je eigen bestand")}
+      <p>Heb je ${esc(n.titel)} zelf als muziekbestand? Dan kan een computerprogramma de zang, de drums en de bas eruit halen, in je eigen browser. Er wordt niets geüpload. Ook dat is een schatting, maar dan van het echte geluid.</p>
+      <p><a class="knop-pil knop-accent" href="/sporen" data-link>Open je eigen muziekbestand</a></p>
+    </div>
   </div>`;
 }
 
