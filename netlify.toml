@@ -32,6 +32,11 @@
   status = 200
 
 [[redirects]]
+  from = "/mijn"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
   from = "/sporen"
   to = "/index.html"
   status = 200

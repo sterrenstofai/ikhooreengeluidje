@@ -1,5 +1,6 @@
 import * as G from "./geluid.js";
 import { F_LAAG, F_HOOG } from "./geluid.js";
+import * as MIJN from "./mijn.js";
 
 const app = document.getElementById("app");
 const TITEL = "ikhooreengeluidje";
@@ -95,6 +96,7 @@ async function toon() {
     if (pad === "/") home(D);
     else if (pad.startsWith("/nummer/")) nummerPagina(D, decodeURIComponent(pad.slice(8)));
     else if (pad === "/nummers") index(D);
+    else if (pad === "/mijn") mijnPagina(D);
     else if (pad === "/instrumenten") instrumentenIndex(D);
     else if (pad.startsWith("/instrument/")) instrumentPagina(D, decodeURIComponent(pad.slice(12)));
     else if (pad === "/onderzoekjes" || pad.startsWith("/onderzoekjes/")) {
@@ -122,6 +124,7 @@ async function toon() {
     window.scrollTo(0, 0);
     app.focus({ preventScroll: true });
     markeerNav(pad);
+    werkMijnBij();
   };
   if (document.startViewTransition && !matchMedia("(prefers-reduced-motion: reduce)").matches) document.startViewTransition(doe);
   else doe();
@@ -139,12 +142,80 @@ function nietGevonden() {
   app.innerHTML = `<section class="kolom tekst"><h1>Dat nummer kennen we (nog) niet</h1><p>Misschien staat het er nog niet in. Kijk in de <a href="/nummers" data-link>lijst met nummers</a>.</p></section>`;
 }
 
+/* ---------- Mijn nummers: het plusje ---------- */
+
+// info gaat mee in data-attributen, zodat het ook werkt voor nummers die niet in de lijst staan
+function mijnKnop(sleutel, info, klein = false) {
+  const ja = MIJN.heeft(sleutel);
+  const attr = `data-mijn="${esc(sleutel)}" data-titel="${esc(info.titel)}" data-artiest="${esc(info.artiest)}" data-hoes="${esc(info.hoes || "")}" data-pad="${esc(info.pad)}"`;
+  return `<button type="button" class="gespot${klein ? " gespot-klein" : ""}${ja ? " ja" : ""}" ${attr} aria-pressed="${ja}" aria-label="${ja ? `${esc(info.titel)} staat in Mijn nummers. Haal weg` : `Zet ${esc(info.titel)} in Mijn nummers`}"><span class="gespot-plus" aria-hidden="true">${ja ? "✓" : "+"}</span>${klein ? "" : `<span class="gespot-tekst">${ja ? "In Mijn nummers" : "Mijn nummers"}</span>`}</button>`;
+}
+const infoVan = (n) => ({ titel: n.titel, artiest: n.artiest, hoes: n.preview?.hoes_klein, pad: `/nummer/${n.slug}` });
+
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("[data-mijn]");
+  if (!b) return;
+  e.preventDefault(); e.stopPropagation();
+  const info = { titel: b.dataset.titel, artiest: b.dataset.artiest, hoes: b.dataset.hoes, pad: b.dataset.pad };
+  const ja = MIJN.wissel(b.dataset.mijn, info);
+  b.classList.remove("plop"); void b.offsetWidth; if (ja) b.classList.add("plop");
+  meldMijn(b.dataset.mijn, info, ja);
+});
+
+function meldMijn(sleutel, info, ja) {
+  let m = document.querySelector(".gespot-melding");
+  if (!m) { m = document.createElement("div"); m.className = "gespot-melding"; m.setAttribute("role", "status"); document.body.append(m); }
+  m.innerHTML = `<span><b>${esc(info.titel)}</b> ${ja ? "staat in Mijn nummers" : "is weggehaald"}</span><button type="button">Ongedaan</button>${ja ? `<a href="/mijn" data-link>Mijn nummers</a>` : ""}`;
+  m.querySelector("button").onclick = () => { MIJN.wissel(sleutel, info); m.classList.remove("zichtbaar"); };
+  requestAnimationFrame(() => m.classList.add("zichtbaar"));
+  clearTimeout(meldMijn.t);
+  meldMijn.t = setTimeout(() => m.classList.remove("zichtbaar"), 4000);
+}
+
+// alle plusjes en de teller in de kop lopen mee
+function werkMijnBij() {
+  const m = MIJN.lees(), n = Object.keys(m).length;
+  document.querySelectorAll("[data-mijn]").forEach((b) => {
+    const ja = !!m[b.dataset.mijn];
+    b.classList.toggle("ja", ja);
+    b.setAttribute("aria-pressed", ja);
+    b.querySelector(".gespot-plus").textContent = ja ? "✓" : "+";
+    const t = b.querySelector(".gespot-tekst");
+    if (t) t.textContent = ja ? "In Mijn nummers" : "Mijn nummers";
+  });
+  const teller = document.querySelector(".nav-mijn-n");
+  if (teller) { teller.hidden = !n; teller.textContent = n; }
+}
+MIJN.opVerandering(() => { werkMijnBij(); if (location.pathname === "/mijn") mijnPagina(_data); });
+
+function mijnPagina(D) {
+  document.title = `Mijn nummers · ${TITEL}`;
+  const m = MIJN.lees();
+  const lijst = Object.entries(m).sort((a, b) => b[1].datum.localeCompare(a[1].datum));
+  const tips = D.nummers.filter((n) => !m[n.slug] && n.nagekeken).sort(() => Math.random() - 0.5).slice(0, 4);
+  const datum = (d) => { const [j, mnd, dag] = d.slice(0, 10).split("-"); return `${+dag} ${["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"][+mnd - 1]} ${j}`; };
+  app.innerHTML = `<section class="breed mijn">
+    ${etiket("Alleen op dit apparaat")}
+    <h1 class="index-kop">Mijn nummers</h1>
+    <p class="held-sub">Nummers die je hebt ontdekt. Tik op het plusje bij een nummer om het hier te zetten.</p>
+    ${lijst.length ? `<div class="raster nummers">${lijst.map(([k, x]) => `<article class="nummer">
+        <a class="nummer-hoes" href="${esc(x.pad)}" data-link aria-hidden="true" tabindex="-1">${x.hoes ? `<img src="${esc(x.hoes)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<span class="hoes-leeg">${esc(x.titel.charAt(0))}</span>`}</a>
+        <div class="nummer-tekst"><a class="nummer-titel" href="${esc(x.pad)}" data-link>${esc(x.titel)}</a><span class="nummer-artiest">${esc(x.artiest)}</span>
+        <p class="mijn-data">Ontdekt op ${datum(x.datum)}</p>
+        <button type="button" class="mijn-min" data-mijn="${esc(k)}" data-titel="${esc(x.titel)}" data-artiest="${esc(x.artiest)}" data-hoes="${esc(x.hoes || "")}" data-pad="${esc(x.pad)}"><span class="gespot-plus" hidden>✓</span>Haal weg</button></div>
+      </article>`).join("")}</div>` : `<div class="mijn-leeg"><p>Nog niets ontdekt. Open een nummer en tik op het plusje bij de titel.</p><p><a class="knop-pil knop-accent" href="/ontdek" data-link>Ontdek een nummer</a></p></div>`}
+    ${tips.length ? `<h2 class="mijn-tips-kop">Misschien ook iets voor jou</h2><div class="raster nummers">${tips.map(kaart).join("")}</div>` : ""}
+    <p class="mijn-noot zacht">Je lijst staat alleen in deze browser, op dit apparaat. Wij krijgen hem niet te zien. Op een ander apparaat begin je opnieuw.</p>
+  </section>`;
+}
+
 /* ---------- Kaartjes ---------- */
 
 function kaart(n) {
   const labels = [n.nagekeken ? "nagekeken" : null, n.samples_erin.length ? "samples" : null].filter(Boolean);
   return `<article class="nummer">
     <a class="nummer-hoes" href="/nummer/${n.slug}" data-link aria-hidden="true" tabindex="-1">${hoes(n, true)}</a>
+    ${mijnKnop(n.slug, infoVan(n), true)}
     <div class="nummer-tekst">
       <a class="nummer-titel" href="/nummer/${n.slug}" data-link>${esc(n.titel)}</a>
       <span class="nummer-artiest">${esc(n.artiest)} · ${n.jaar}</span>
@@ -239,6 +310,7 @@ function nummerPagina(D, slug) {
         ${n.preview ? `<button class="knop-rond knop-groot" type="button" data-speel aria-label="Speel het fragment van ${esc(n.titel)}">${SPEEL_SVG}</button>` : ""}
         <h1>${esc(n.titel)}</h1>
       </div>
+      ${mijnKnop(n.slug, infoVan(n))}
       <dl class="weetjes">${weetjes.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
     </div>
     <div class="scherm-strook">
