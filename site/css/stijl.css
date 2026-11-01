@@ -761,3 +761,8 @@ a.sample-naam:hover strong { text-decoration: underline; }
 .sim-stap[aria-pressed="true"] .sim-stap-nr { background: var(--inkt); color: var(--papier); }
 .sim-stap-bron { font-size: .78rem; margin: .5rem 0 0; min-height: 1.2em; }
 .sim-baan.niet-in-stap { opacity: .18; }
+.sp-bewaard { margin-top: 1.2rem; background: var(--papier-licht); border-radius: 18px; padding: 1rem 1.2rem; max-width: 46rem; }
+.sp-bewaard p { margin: 0 0 .5rem; }
+.sp-bewaard p:last-child { margin-bottom: 0; }
+.sp-bewaard-knoppen { display: flex; flex-wrap: wrap; gap: .4rem; }
+.sp-tekstknop { border: 0; background: none; padding: 0; font: inherit; color: var(--inkt); text-decoration: underline; cursor: pointer; }

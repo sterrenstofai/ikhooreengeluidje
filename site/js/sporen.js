@@ -2,6 +2,7 @@
 // de bas en de rest hoort. Alles gebeurt in deze browser; het bestand wordt nergens heen gestuurd.
 // Het rekenen doet sporen-werker.js. Het afspelen gaat via Web Audio, zodat de vier sporen gelijk lopen.
 import * as G from "./geluid.js";
+import * as M from "./geheugen.js";
 
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 const RATE = 44100;
@@ -41,7 +42,7 @@ export function sporenPagina(app) {
 
   const stap = (naam) => app.querySelector(`[data-stap="${naam}"]`);
   const invoer = app.querySelector('input[type="file"]');
-  let werker = null, ctx = null, bron = null, mixer = null;
+  let werker = null, ctx = null, bron = null, mixer = null, afdruk = null;
 
   invoer.addEventListener("change", async () => {
     const f = invoer.files?.[0];
@@ -52,7 +53,9 @@ export function sporenPagina(app) {
     s.hidden = false;
     s.innerHTML = `<p class="laden"><span></span>Je bestand openen…</p>`;
     try {
-      bron = await decodeer(await f.arrayBuffer());
+      const buf = await f.arrayBuffer();
+      afdruk = await M.vingerafdruk(buf); // eerst: decoderen maakt de buffer leeg
+      bron = await decodeer(buf);
       bron.naam = f.name;
       toonStukKiezer();
     } catch (e) {
@@ -76,21 +79,62 @@ export function sporenPagina(app) {
       <canvas class="sp-overzicht" aria-hidden="true"></canvas>
       ${lang ? `<label class="sp-schuif"><span>Begin bij <output>0:00</output></span><input type="range" min="0" max="${Math.floor(bron.duur - STUK_S)}" step="1" value="${Math.min(Math.floor(bron.duur * 0.3), Math.floor(bron.duur - STUK_S))}" aria-label="Begin van het stuk in seconden"></label>` : ""}
       <p><button class="knop-pil knop-donker knop-groot-pil" type="button" data-start>Haal de sporen uit elkaar</button></p>
-      <p class="zacht sp-klein" data-model-noot></p>`;
+      <p class="zacht sp-klein" data-model-noot></p>
+      <div class="sp-bewaard" data-bewaard hidden></div>`;
     const doek = s.querySelector(".sp-overzicht"), schuif = s.querySelector('input[type="range"]');
     const teken = () => tekenOverzicht(doek, bron, schuif ? +schuif.value : 0, Math.min(STUK_S, bron.duur));
     if (schuif) schuif.addEventListener("input", () => { s.querySelector("output").textContent = tijd(+schuif.value); teken(); });
     if (schuif) s.querySelector("output").textContent = tijd(+schuif.value);
     requestAnimationFrame(teken);
     werkerKlaar().then(() => werker.postMessage({ type: "heeft-model" }));
+    toonBewaard();
     s.querySelector("[data-start]").addEventListener("click", () => {
       // in de tik: zo mag het geluid straks op iOS
       ctx = ctx || new (window.AudioContext || window.webkitAudioContext)({ sampleRate: RATE });
       ctx.resume();
-      const van = schuif ? +schuif.value : 0, n = Math.min(Math.floor(STUK_S * RATE), bron.links.length - Math.floor(van * RATE));
-      const o = Math.floor(van * RATE);
-      reken(bron.links.slice(o, o + n), bron.rechts.slice(o, o + n), van);
+      const van = schuif ? +schuif.value : 0;
+      M.lijst().then((l) => {
+        // hetzelfde stuk van hetzelfde bestand staat al op dit apparaat: meteen tonen
+        if (l.some((x) => x.sleutel === `${afdruk}:${van}`)) return openBewaard(`${afdruk}:${van}`);
+        const [links, rechts] = stuk(van);
+        reken(links, rechts, van);
+      });
     });
+  }
+
+  function stuk(van) {
+    const o = Math.floor(van * RATE), n = Math.min(Math.floor(STUK_S * RATE), bron.links.length - o);
+    return [bron.links.slice(o, o + n), bron.rechts.slice(o, o + n)];
+  }
+
+  // Eerder uit elkaar gehaald op dit apparaat: van dit bestand, en een knop om alles te vergeten
+  async function toonBewaard() {
+    const vak = app.querySelector("[data-bewaard]");
+    if (!vak) return;
+    const l = await M.lijst();
+    const hier = l.filter((x) => x.bestand === afdruk).sort((a, b) => a.van - b.van);
+    if (!l.length) { vak.hidden = true; return; }
+    const mb = Math.round(l.reduce((a, x) => a + (x.bytes || 0), 0) / 1e6);
+    vak.hidden = false;
+    vak.innerHTML = `${hier.length ? `<p><strong>Al eerder uit elkaar gehaald op dit apparaat.</strong> Die sporen staan meteen klaar:</p>
+      <p class="sp-bewaard-knoppen">${hier.map((x) => `<button class="knop-pil" type="button" data-open="${x.sleutel}">${tijd(x.van)} tot ${tijd(x.van + x.duur)}</button>`).join("")}</p>` : ""}
+      <p class="zacht sp-klein">Op dit apparaat ${l.length === 1 ? "staat 1 stuk" : `staan ${l.length} stukken`} bewaard (${mb} MB). We houden er hooguit drie. <button class="sp-tekstknop" type="button" data-vergeet>Vergeet alle bewaarde sporen</button></p>`;
+    vak.querySelectorAll("[data-open]").forEach((b) => b.addEventListener("click", () => {
+      ctx = ctx || new (window.AudioContext || window.webkitAudioContext)({ sampleRate: RATE });
+      ctx.resume();
+      openBewaard(b.dataset.open);
+    }));
+    vak.querySelector("[data-vergeet]").addEventListener("click", async () => { await M.wis(); toonBewaard(); });
+  }
+
+  async function openBewaard(sleutel) {
+    const rec = await M.haal(sleutel);
+    if (!rec) return;
+    const [links, rechts] = stuk(rec.van);
+    stap("reken").hidden = true;
+    mixer?.stop();
+    mixer = maakMixer(stap("mixer"), rec.sporen, { links, rechts }, rec.van, null);
+    stap("mixer").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
   }
 
   function werkerKlaar() {
@@ -142,6 +186,8 @@ export function sporenPagina(app) {
       stap("reken").hidden = true;
       mixer?.stop();
       mixer = maakMixer(stap("mixer"), d.sporen, origineel, stukVan, d.seconden);
+      // bewaren op dit apparaat, zodat het de volgende keer meteen klaar is (mislukt het, dan niet erg)
+      M.bewaar(afdruk, bron.naam, stukVan, d.sporen).then(() => { const n = app.querySelector("[data-bewaar-noot]"); if (n) n.textContent = "Bewaard op dit apparaat: de volgende keer staan deze sporen meteen klaar."; toonBewaard(); }).catch(() => {});
       stap("mixer").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
     } else if (d.type === "fout") {
       toonFout(d.tekst);
@@ -172,7 +218,7 @@ export function sporenPagina(app) {
 
     el.innerHTML = `
       <h2>De sporen</h2>
-      <p class="zacht sp-klein">Uit elkaar gehaald in ${Math.round(seconden)} seconden: ${tijd(van)} tot ${tijd(van + duur)} van ${esc(bron.naam)}. Een schatting, geen echte studiosporen.</p>
+      <p class="zacht sp-klein">${seconden == null ? "Uit het geheugen van dit apparaat" : `Uit elkaar gehaald in ${Math.round(seconden)} seconden`}: ${tijd(van)} tot ${tijd(van + duur)} van ${esc(bron.naam)}. Een schatting, geen echte studiosporen. <span data-bewaar-noot></span></p>
       <div class="sp-bediening">
         <button class="knop-rond knop-groot" type="button" data-speel aria-label="Speel"><svg viewBox="0 0 44 44" aria-hidden="true"><circle class="ring-bg" cx="22" cy="22" r="20"/><circle class="ring" cx="22" cy="22" r="20"/><path class="ico-pauze" d="M17 15v14M27 15v14"/><path class="ico-speel" d="M18 14l12 8-12 8z"/></svg></button>
         <span class="mono sp-tijd">0:00 / ${tijd(duur)}</span>
