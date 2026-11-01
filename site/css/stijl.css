@@ -752,3 +752,12 @@ a.sample-naam:hover strong { text-decoration: underline; }
   .sim-baan { grid-template-columns: 1fr auto; }
   .sim-rol { grid-column: 1 / -1; }
 }
+.sim-opbouw { margin: 1.2rem 0 .4rem; }
+.sim-stappen { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr)); gap: .4rem; }
+.sim-stap { display: grid; grid-template-columns: auto 1fr; gap: .6rem; align-items: start; text-align: left; border: 1.5px solid var(--lijn); background: var(--papier); border-radius: 14px; padding: .6rem .7rem; cursor: pointer; font: 400 .85rem/1.35 var(--ui); color: var(--inkt); }
+.sim-stap strong { display: block; font: 500 .92rem/1.2 var(--ui); margin-bottom: .1rem; }
+.sim-stap-nr { display: grid; place-items: center; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--papier-licht); font: 500 .8rem var(--mono); }
+.sim-stap[aria-pressed="true"] { border-color: var(--inkt); background: var(--mint); }
+.sim-stap[aria-pressed="true"] .sim-stap-nr { background: var(--inkt); color: var(--papier); }
+.sim-stap-bron { font-size: .78rem; margin: .5rem 0 0; min-height: 1.2em; }
+.sim-baan.niet-in-stap { opacity: .18; }

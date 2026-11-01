@@ -1,0 +1,19 @@
+{
+ "opbouw": [
+  {
+   "wanneer": "Begin",
+   "tekst": "De baslijn, met vingerknippen erbij. Diezelfde baslijn zit later in Ice Ice Baby.",
+   "banen": [
+    "basgitaar",
+    "vingerknippen"
+   ],
+   "bron": "https://en.wikipedia.org/wiki/Under_Pressure"
+  },
+  {
+   "wanneer": "Daarna",
+   "tekst": "Piano, gitaar, drums en de stemmen van Freddie Mercury en David Bowie.",
+   "rest": true,
+   "bron": "https://en.wikipedia.org/wiki/Under_Pressure"
+  }
+ ]
+}

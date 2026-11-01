@@ -132,8 +132,8 @@ export function banen(nummer, instrumenten) {
   for (const a of nummer.apparaten || []) uit.push({ key: APPARAAT_ROL(a.naam, a.soort), naam: a.naam, apparaat: true, wie: [] });
   for (const c of nummer.credits || []) {
     if (!ROL[c.key]) continue;
-    if (c.key === "drumcomputer" && uit.some((b) => b.apparaat && b.key === "drumcomputer")) continue;
-    if (c.key === "synthesizer" && uit.some((b) => b.apparaat && b.key === "synthesizer")) continue;
+    // het nagekeken apparaat staat er al (bijvoorbeeld de CR-78 als drumcomputer): geen tweede baan
+    if (uit.some((b) => b.apparaat && b.key === c.key)) continue;
     const i = perKey[c.key];
     const nl = i ? i.nl : c.nl;
     uit.push({ key: c.key, naam: nl.charAt(0).toUpperCase() + nl.slice(1), wie: c.wie.map((w) => w.naam) });
@@ -163,6 +163,12 @@ export function simulatie(el, nummer, instrumenten, tempo) {
       <button class="knop-rond knop-groot" type="button" data-sim-speel aria-label="Speel de simulatie">${'<svg viewBox="0 0 44 44" aria-hidden="true"><circle class="ring-bg" cx="22" cy="22" r="20"/><circle class="ring" cx="22" cy="22" r="20"/><path class="ico-pauze" d="M17 15v14M27 15v14"/><path class="ico-speel" d="M18 14l12 8-12 8z"/></svg>'}</button>
       <span class="sim-tempo mono">${bpm} tellen per minuut${tempo ? ` (${esc(tempo.bron)})` : " (tempo onbekend)"}</span>
     </div>
+    ${nummer.opbouw?.length ? `<div class="sim-opbouw">
+      <p class="etiket">Opbouw, met de hand nagekeken</p>
+      <div class="sim-stappen" role="group" aria-label="Kies een stap in het nummer">${nummer.opbouw.map((st, k) => `<button type="button" class="sim-stap" data-stap="${k}" aria-pressed="false"><span class="sim-stap-nr">${k + 1}</span><span><strong>${esc(st.wanneer)}</strong>${esc(st.tekst)}</span></button>`).join("")}
+        <button type="button" class="sim-stap" data-stap="alles" aria-pressed="true"><span class="sim-stap-nr">⋯</span><span><strong>Alles samen</strong>Alle instrumenten die erin zitten.</span></button></div>
+      <p class="sim-stap-bron zacht"></p>
+    </div>` : ""}
     <div class="sim-banen">${lijst.map((b, i) => `
       <div class="sim-baan${b.apparaat ? " sim-apparaat" : ""}" data-baan="${i}">
         <div class="sim-baan-kop"><strong>${esc(b.naam)}</strong>${b.wie.length ? `<span class="zacht">${esc(b.wie.slice(0, 3).join(", "))}${b.wie.length > 3 ? " e.a." : ""}</span>` : b.apparaat ? `<span class="zacht">met de hand nagekeken</span>` : ""}</div>
@@ -204,7 +210,9 @@ export function simulatie(el, nummer, instrumenten, tempo) {
   /* klanken, door de browser gemaakt */
   let ctx = null, timer = 0, volgende = 0, s16 = 0;
   const hz = (m) => 440 * Math.pow(2, (m - 69) / 12);
-  const hoorbaar = (i) => (alleen.size ? alleen.has(i) : !stil.has(i));
+  // stap in de opbouw: welke banen klinken er dan (null = alles)
+  let inStap = null;
+  const hoorbaar = (i) => (!inStap || inStap.has(i)) && (alleen.size ? alleen.has(i) : !stil.has(i));
   function ruis(duur) {
     const b = ctx.createBuffer(1, Math.ceil(ctx.sampleRate * duur), ctx.sampleRate), d = b.getChannelData(0);
     for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
@@ -256,7 +264,24 @@ export function simulatie(el, nummer, instrumenten, tempo) {
     timer = setInterval(plan, 25); plan();
     knop.classList.add("speelt"); knop.setAttribute("aria-label", "Stop de simulatie");
   });
-  const werkBanen = () => el.querySelectorAll(".sim-baan").forEach((d) => d.classList.toggle("uit", !hoorbaar(+d.dataset.baan)));
+  const werkBanen = () => el.querySelectorAll(".sim-baan").forEach((d) => {
+    const i = +d.dataset.baan;
+    d.classList.toggle("uit", !hoorbaar(i));
+    d.classList.toggle("niet-in-stap", !!inStap && !inStap.has(i));
+  });
+  el.querySelectorAll("[data-stap]").forEach((b) => b.addEventListener("click", () => {
+    const k = b.dataset.stap;
+    el.querySelectorAll("[data-stap]").forEach((x) => x.setAttribute("aria-pressed", x === b));
+    const bron = el.querySelector(".sim-stap-bron");
+    if (k === "alles") { inStap = null; bron.textContent = ""; }
+    else {
+      const st = nummer.opbouw[+k];
+      // 'rest': vanaf hier speelt alles; anders alleen de genoemde instrumenten
+      inStap = st.rest ? null : new Set(lijst.map((bn, i) => [bn, i]).filter(([bn]) => (st.banen || []).includes(bn.key)).map(([, i]) => i));
+      bron.innerHTML = `Bron: <a href="${esc(st.bron)}" rel="noopener">${esc(new URL(st.bron).hostname.replace(/^en\./, ""))}</a>. De stappen zijn echt, de blokjes blijven nagemaakt.`;
+    }
+    werkBanen();
+  }));
   el.querySelectorAll("[data-sim-stil]").forEach((b) => b.addEventListener("click", () => {
     const i = +b.dataset.simStil; stil.has(i) ? stil.delete(i) : stil.add(i); b.setAttribute("aria-pressed", stil.has(i)); werkBanen();
   }));

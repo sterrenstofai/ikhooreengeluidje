@@ -22,5 +22,32 @@
  "tempo": {
   "bpm": 95,
   "bron": "volgens Deezer"
- }
+ },
+ "opbouw": [
+  {
+   "wanneer": "Begin",
+   "tekst": "De drumcomputer tikt, de synthesizer speelt donkere akkoorden.",
+   "banen": [
+    "drumcomputer",
+    "synthesizer"
+   ],
+   "bron": "https://en.wikipedia.org/wiki/In_the_Air_Tonight"
+  },
+  {
+   "wanneer": "Daarna",
+   "tekst": "Phil Collins begint te zingen. Nog steeds geen echte drums.",
+   "banen": [
+    "drumcomputer",
+    "synthesizer",
+    "zang"
+   ],
+   "bron": "https://en.wikipedia.org/wiki/In_the_Air_Tonight"
+  },
+  {
+   "wanneer": "Na ruim drie minuten",
+   "tekst": "De beroemde drumroffel, met gated reverb. Vanaf hier speelt de hele band.",
+   "rest": true,
+   "bron": "https://en.wikipedia.org/wiki/Gated_reverb"
+  }
+ ]
 }

@@ -1,0 +1,39 @@
+{
+ "opbouw": [
+  {
+   "wanneer": "Begin",
+   "tekst": "De gitaar speelt alleen vier akkoorden.",
+   "banen": [
+    "gitaar"
+   ],
+   "bron": "https://en.wikipedia.org/wiki/Smells_Like_Teen_Spirit"
+  },
+  {
+   "wanneer": "Daarna",
+   "tekst": "Drums en bas vallen in: alles hard.",
+   "banen": [
+    "gitaar",
+    "drumstel",
+    "basgitaar"
+   ],
+   "bron": "https://en.wikipedia.org/wiki/Smells_Like_Teen_Spirit"
+  },
+  {
+   "wanneer": "Couplet",
+   "tekst": "Stil: vooral bas en drums onder de zang, met een zacht gitaarloopje.",
+   "banen": [
+    "drumstel",
+    "basgitaar",
+    "zang",
+    "gitaar"
+   ],
+   "bron": "https://en.wikipedia.org/wiki/Smells_Like_Teen_Spirit"
+  },
+  {
+   "wanneer": "Refrein",
+   "tekst": "Weer alles hard.",
+   "rest": true,
+   "bron": "https://en.wikipedia.org/wiki/Smells_Like_Teen_Spirit"
+  }
+ ]
+}

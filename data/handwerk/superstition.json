@@ -12,5 +12,30 @@
    "tekst": "Stevie Wonder speelt de drums zelf.",
    "bron": "https://en.wikipedia.org/wiki/Superstition_(song)"
   }
+ ],
+ "opbouw": [
+  {
+   "wanneer": "Begin",
+   "tekst": "Stevie Wonder speelt eerst alleen de drums.",
+   "banen": [
+    "drumstel"
+   ],
+   "bron": "https://en.wikipedia.org/wiki/Superstition_(song)"
+  },
+  {
+   "wanneer": "Daarna",
+   "tekst": "Het funky riffje op de clavinet.",
+   "banen": [
+    "drumstel",
+    "clavinet"
+   ],
+   "bron": "https://en.wikipedia.org/wiki/Superstition_(song)"
+  },
+  {
+   "wanneer": "Later",
+   "tekst": "Bas, zang en blazers.",
+   "rest": true,
+   "bron": "https://en.wikipedia.org/wiki/Superstition_(song)"
+  }
  ]
 }

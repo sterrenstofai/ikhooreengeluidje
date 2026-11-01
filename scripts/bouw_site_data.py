@@ -187,7 +187,7 @@ def main():
             "nagekeken": bool(h),
             "credits": credits,
             "productie": {k: sorted(v) for k, v in prod.items()},
-            "apparaten": h.get("apparaten", []), "weetjes": h.get("weetjes", []), "tempo": h.get("tempo"),
+            "apparaten": h.get("apparaten", []), "weetjes": h.get("weetjes", []), "tempo": h.get("tempo"), "opbouw": h.get("opbouw"),
             "samples_erin": erin, "gesampled_door": door[:10], "gesampled_door_totaal": len(door),
             "isrc": (rec.get("isrcs") or [None])[0],
             "bronnen": {"musicbrainz": rec.get("id") and "https://musicbrainz.org/recording/" + rec["id"],

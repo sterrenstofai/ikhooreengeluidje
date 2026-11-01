@@ -30,5 +30,59 @@
   "bekkens",
   "grote trom",
   "tamtam"
+ ],
+ "opbouw": [
+  {
+   "wanneer": "Begin",
+   "tekst": "Een kleine trom speelt zacht het ritme. Altviolen en cello's tokkelen mee.",
+   "banen": [
+    "kleine-trom",
+    "altviool",
+    "cello"
+   ],
+   "bron": "https://en.wikipedia.org/wiki/Bol%C3%A9ro"
+  },
+  {
+   "wanneer": "Dan",
+   "tekst": "De dwarsfluit speelt de melodie.",
+   "banen": [
+    "kleine-trom",
+    "altviool",
+    "cello",
+    "dwarsfluit"
+   ],
+   "bron": "https://en.wikipedia.org/wiki/Bol%C3%A9ro"
+  },
+  {
+   "wanneer": "Dan",
+   "tekst": "De klarinet neemt de melodie over.",
+   "banen": [
+    "kleine-trom",
+    "altviool",
+    "cello",
+    "dwarsfluit",
+    "klarinet"
+   ],
+   "bron": "https://en.wikipedia.org/wiki/Bol%C3%A9ro"
+  },
+  {
+   "wanneer": "Dan",
+   "tekst": "De fagot, en zo komen er steeds meer instrumenten bij.",
+   "banen": [
+    "kleine-trom",
+    "altviool",
+    "cello",
+    "dwarsfluit",
+    "klarinet",
+    "fagot"
+   ],
+   "bron": "https://en.wikipedia.org/wiki/Bol%C3%A9ro"
+  },
+  {
+   "wanneer": "Aan het eind",
+   "tekst": "Het hele orkest, zo hard als het kan.",
+   "rest": true,
+   "bron": "https://en.wikipedia.org/wiki/Bol%C3%A9ro"
+  }
  ]
 }

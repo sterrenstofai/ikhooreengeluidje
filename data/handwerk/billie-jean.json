@@ -16,5 +16,32 @@
  "tempo": {
   "bpm": 117,
   "bron": "volgens Deezer"
- }
+ },
+ "opbouw": [
+  {
+   "wanneer": "Begin",
+   "tekst": "Alleen de drums.",
+   "banen": [
+    "drumcomputer",
+    "drumstel"
+   ],
+   "bron": "https://en.wikipedia.org/wiki/Billie_Jean"
+  },
+  {
+   "wanneer": "Daarna",
+   "tekst": "De baslijn komt erbij. Die blijft het hele nummer hetzelfde patroon spelen.",
+   "banen": [
+    "drumcomputer",
+    "drumstel",
+    "basgitaar"
+   ],
+   "bron": "https://en.wikipedia.org/wiki/Billie_Jean"
+  },
+  {
+   "wanneer": "Dan",
+   "tekst": "Synthesizer, toetsen en zang.",
+   "rest": true,
+   "bron": "https://en.wikipedia.org/wiki/Billie_Jean"
+  }
+ ]
 }
