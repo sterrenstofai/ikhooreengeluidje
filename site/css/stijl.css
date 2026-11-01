@@ -825,3 +825,8 @@ a.sample-naam:hover strong { text-decoration: underline; }
 @media (min-width: 1000px) { .zoek-pil { min-width: 13rem; } }
 .mijn-min { justify-self: start; }
 @media (min-width: 1000px) and (max-width: 1199px) { .zoek-knop { display: none; } .zoek-rij { grid-template-columns: minmax(0, 1fr) auto; } }
+.zoek-alles { border-top: 1px solid var(--lijn); }
+.zoek-pagina .index-rij { margin: 1rem 0 0; }
+.gevonden-balk { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin: .4rem auto 0; font: 400 .85rem/1.4 var(--ui); color: var(--inkt-zacht); }
+.gevonden-balk + .scherm { margin-top: 0; }
+@media (min-width: 1000px) { .gevonden-balk { position: absolute; top: 4.6rem; left: 0; right: 0; z-index: 4; } }

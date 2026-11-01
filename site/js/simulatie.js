@@ -157,7 +157,7 @@ export function simulatie(el, nummer, instrumenten, tempo) {
   el.innerHTML = `
     <div class="sim-kop">
       <p class="label">simulatie</p>
-      <p class="sim-uitleg">Welke instrumenten erin zitten, is echt: uit de credits en onze eigen controle. Hoe de blokjes staan, is nagemaakt: zo speelt zo'n instrument meestal, niet precies in dit nummer. Hoog in een baan is een hoge noot, een lang blokje een lange noot.</p>
+      <p class="sim-uitleg">Welke instrumenten erin zitten, is echt: ${nummer.gevonden ? "uit de credits in MusicBrainz, niet door ons nagekeken" : "uit de credits en onze eigen controle"}. Hoe de blokjes staan, is nagemaakt: zo speelt zo'n instrument meestal, niet precies in dit nummer. Hoog in een baan is een hoge noot, een lang blokje een lange noot.</p>
     </div>
     <div class="sim-bediening">
       <button class="knop-rond knop-groot" type="button" data-sim-speel aria-label="Speel de simulatie">${'<svg viewBox="0 0 44 44" aria-hidden="true"><circle class="ring-bg" cx="22" cy="22" r="20"/><circle class="ring" cx="22" cy="22" r="20"/><path class="ico-pauze" d="M17 15v14M27 15v14"/><path class="ico-speel" d="M18 14l12 8-12 8z"/></svg>'}</button>

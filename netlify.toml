@@ -32,6 +32,16 @@
   status = 200
 
 [[redirects]]
+  from = "/zoek"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/gevonden/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
   from = "/mijn"
   to = "/index.html"
   status = 200
@@ -54,7 +64,7 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.mzstatic.com; font-src 'self'; connect-src 'self' https://audio-ssl.itunes.apple.com https://huggingface.co https://*.hf.co; worker-src 'self'; media-src 'self' https://audio-ssl.itunes.apple.com blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'none'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.mzstatic.com; font-src 'self'; connect-src 'self' https://audio-ssl.itunes.apple.com https://itunes.apple.com https://musicbrainz.org https://huggingface.co https://*.hf.co; worker-src 'self'; media-src 'self' https://audio-ssl.itunes.apple.com blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'none'"
     Referrer-Policy = "no-referrer"
     Permissions-Policy = "geolocation=(), camera=(), microphone=(), interest-cohort=()"
     X-Content-Type-Options = "nosniff"

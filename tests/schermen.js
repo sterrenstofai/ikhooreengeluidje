@@ -18,6 +18,8 @@ const PAGINAS = [
   ["oz-paren", "/onderzoekjes/oud-in-nieuw"],
   ["oz-hoog", "/onderzoekjes/hoog-en-laag"],
   ["sporen", "/sporen"],
+  ["mijn", "/mijn"],
+  ["zoek", "/zoek?q=zombie"],
 ];
 (async () => {
   require("fs").mkdirSync(UIT, { recursive: true });

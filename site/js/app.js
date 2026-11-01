@@ -87,7 +87,7 @@ async function toon() {
   const doe = () => {
     for (const d of paginaDoeken) G.ontkoppelDoek(d);
     paginaDoeken = [];
-    document.body.classList.toggle("onder-kop", !pad.startsWith("/nummer/"));
+    document.body.classList.toggle("onder-kop", !pad.startsWith("/nummer/") && !pad.startsWith("/gevonden/"));
     document.body.classList.toggle("kindermodus", pad === "/kinderen");
     kinderModule?.verlaat();
     ozModule?.verlaat();
@@ -97,6 +97,8 @@ async function toon() {
     else if (pad.startsWith("/nummer/")) nummerPagina(D, decodeURIComponent(pad.slice(8)));
     else if (pad === "/nummers") index(D);
     else if (pad === "/mijn") mijnPagina(D);
+    else if (pad === "/zoek") zoekPagina(D, new URLSearchParams(location.search).get("q") || "");
+    else if (pad.startsWith("/gevonden/")) gevondenPagina(D, pad.slice(10));
     else if (pad === "/instrumenten") instrumentenIndex(D);
     else if (pad.startsWith("/instrument/")) instrumentPagina(D, decodeURIComponent(pad.slice(12)));
     else if (pad === "/onderzoekjes" || pad.startsWith("/onderzoekjes/")) {
@@ -150,7 +152,9 @@ function mijnKnop(sleutel, info, klein = false) {
   const attr = `data-mijn="${esc(sleutel)}" data-titel="${esc(info.titel)}" data-artiest="${esc(info.artiest)}" data-hoes="${esc(info.hoes || "")}" data-pad="${esc(info.pad)}"`;
   return `<button type="button" class="gespot${klein ? " gespot-klein" : ""}${ja ? " ja" : ""}" ${attr} aria-pressed="${ja}" aria-label="${ja ? `${esc(info.titel)} staat in Mijn nummers. Haal weg` : `Zet ${esc(info.titel)} in Mijn nummers`}"><span class="gespot-plus" aria-hidden="true">${ja ? "✓" : "+"}</span>${klein ? "" : `<span class="gespot-tekst">${ja ? "In Mijn nummers" : "Mijn nummers"}</span>`}</button>`;
 }
-const infoVan = (n) => ({ titel: n.titel, artiest: n.artiest, hoes: n.preview?.hoes_klein, pad: `/nummer/${n.slug}` });
+// gevonden nummers (iTunes-id) hebben een eigen sleutel en pad, zodat het plusje overal hetzelfde is
+const mijnSleutel = (n) => (n.gevonden ? `it:${n.slug.slice(3)}` : n.slug);
+const infoVan = (n) => ({ titel: n.titel, artiest: n.artiest, hoes: n.preview?.hoes_klein, pad: n.gevonden ? `/gevonden/${n.slug.slice(3)}` : `/nummer/${n.slug}` });
 
 document.addEventListener("click", (e) => {
   const b = e.target.closest("[data-mijn]");
@@ -288,6 +292,11 @@ const TABS = [["sporen", "Sporen"], ["instrumenten", "Instrumenten"], ["samples"
 function nummerPagina(D, slug) {
   const n = D.perSlug[slug];
   if (!n) return nietGevonden();
+  toonNummer(D, n);
+}
+
+// Toont een nummer: uit de vaste lijst, of gevonden via iTunes en MusicBrainz (n.gevonden)
+function toonNummer(D, n) {
   document.title = `${n.titel} van ${n.artiest} · ${TITEL}`;
   const verwant = verwanteNummers(D, n);
   const prod = n.productie || {};
@@ -297,9 +306,11 @@ function nummerPagina(D, slug) {
     n.album ? ["Album", `<span class="cursief">${esc(n.album)}</span>`] : null,
     prod.productie ? ["Productie", esc(prod.productie.join(", "))] : null,
     ["Status", n.nagekeken ? `<span class="label">nagekeken</span>` : `<span class="label label-zacht">niet nagekeken</span>`],
+    n.gevonden ? ["Bron", `Gevonden via iTunes${n.mbId ? ` en <a href="${esc(n.bronnen.musicbrainz)}" rel="noopener">MusicBrainz</a>` : "; niet gevonden in MusicBrainz"}`] : null,
   ].filter(Boolean);
   const startTab = "sporen";
   app.innerHTML = `
+  ${n.gevonden ? `<p class="gevonden-balk breed"><span class="label label-zacht">niet nagekeken</span> Dit nummer staat niet in onze lijst. Wat je hier ziet, komt rechtstreeks uit MusicBrainz en iTunes. Credits kunnen ontbreken of fout zijn.</p>` : ""}
   <section class="scherm" data-nummer="${n.slug}">
     <div class="podium">
       ${TABS.map(([k]) => `<div class="podium-paneel paneel-${k}" id="paneel-${k}" role="tabpanel" aria-labelledby="tab-${k}" ${k === startTab ? "" : "hidden"}>${paneel(D, n, k)}</div>`).join("")}
@@ -310,7 +321,7 @@ function nummerPagina(D, slug) {
         ${n.preview ? `<button class="knop-rond knop-groot" type="button" data-speel aria-label="Speel het fragment van ${esc(n.titel)}">${SPEEL_SVG}</button>` : ""}
         <h1>${esc(n.titel)}</h1>
       </div>
-      ${mijnKnop(n.slug, infoVan(n))}
+      ${mijnKnop(mijnSleutel(n), infoVan(n))}
       <dl class="weetjes">${weetjes.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
     </div>
     <div class="scherm-strook">
@@ -358,7 +369,7 @@ function paneelInstrumenten(D, n) {
     const wie = c.wie.length
       ? c.wie.map((w) => `<span class="wie">${esc(w.naam)}<small>${w.bron.map((b) => (b === "MusicBrainz" ? "MB" : "D")).join(" ")}</small></span>`).join("")
       : `<span class="zacht">volgens de partituur</span>`;
-    return `<li><a class="instr-naam" href="/instrument/${c.key}" data-link>${esc(i ? i.nl : c.nl)}</a><span class="instr-wie">${wie}</span></li>`;
+    return `<li>${i ? `<a class="instr-naam" href="/instrument/${c.key}" data-link>${esc(i.nl)}</a>` : `<span class="instr-naam">${esc(c.nl)}</span>`}<span class="instr-wie">${wie}</span></li>`;
   }).join("");
   const leeg = !n.credits.length && !n.apparaten.length;
   return `<div class="paneel-binnen">
@@ -494,23 +505,75 @@ function instrumentPagina(D, key) {
   app.querySelector("[data-klank]")?.addEventListener("click", () => G.speel({ id: `klank:${key}`, titel: i.nl, artiest: "Zo klinkt het", url: D.klanken[key].pad, eigen: true }));
 }
 
+/* ---------- Zoeken in alle nummers (iTunes en MusicBrainz, live) ---------- */
+
+function zoekPagina(D, q) {
+  document.title = `Zoeken: ${q} · ${TITEL}`;
+  const nq = norm(q);
+  const eigen = D.nummers.filter((n) => nq && norm(`${n.titel} ${n.artiest}`).includes(nq));
+  app.innerHTML = `<section class="blok breed zoek-pagina">
+    ${etiket("Zoeken in alle nummers")}
+    <h1 class="index-kop">${esc(q || "Zoeken")}</h1>
+    <form class="index-rij" data-zoekform><label class="sr" for="zoek-alles">Zoek een nummer</label><input class="veld" id="zoek-alles" type="search" value="${esc(q)}" placeholder="Titel en artiest, bijvoorbeeld Zombie Cranberries" autocomplete="off"><button class="knop-pil knop-donker" type="submit">Zoeken</button></form>
+    ${eigen.length ? `<h2 class="tussenkop">In onze lijst</h2><div class="raster nummers">${eigen.map(kaart).join("")}</div>` : ""}
+    <h2 class="tussenkop">Alle nummers <span class="label label-zacht">niet nagekeken</span></h2>
+    <div data-resultaten><p class="laden"><span></span>Zoeken bij iTunes…</p></div>
+    <p class="noot zacht">Deze nummers staan niet in onze lijst. Klik er een aan: dan halen we de credits en samples op bij MusicBrainz en het fragment bij iTunes. Dat is niet met de hand nagekeken.</p>
+  </section>`;
+  app.querySelector("[data-zoekform]").addEventListener("submit", (e) => { e.preventDefault(); naar(`/zoek?q=${encodeURIComponent(app.querySelector("#zoek-alles").value.trim())}`); });
+  if (!q.trim()) { app.querySelector("[data-resultaten]").innerHTML = ""; return; }
+  import("./mbzoek.js").then((Z) => Z.zoekItunes(q)).then((lijst) => {
+    const vak = app.querySelector("[data-resultaten]");
+    if (!vak) return;
+    vak.innerHTML = lijst.length ? `<div class="raster nummers">${lijst.map((r) => {
+      const info = { titel: r.trackName, artiest: r.artistName, hoes: r.artworkUrl100.replace("100x100bb", "200x200bb"), pad: `/gevonden/${r.trackId}` };
+      return `<article class="nummer">
+        <a class="nummer-hoes" href="/gevonden/${r.trackId}" data-link aria-hidden="true" tabindex="-1"><img src="${esc(info.hoes)}" alt="" loading="lazy" referrerpolicy="no-referrer" width="200" height="200"></a>
+        ${mijnKnop(`it:${r.trackId}`, info, true)}
+        <div class="nummer-tekst"><a class="nummer-titel" href="/gevonden/${r.trackId}" data-link>${esc(r.trackName)}</a><span class="nummer-artiest">${esc(r.artistName)}${r.releaseDate ? ` · ${r.releaseDate.slice(0, 4)}` : ""}</span></div>
+      </article>`; }).join("")}</div>` : `<p class="leeg-zin">Niets gevonden bij iTunes. Probeer de titel en de artiest.</p>`;
+  }).catch(() => { const vak = app.querySelector("[data-resultaten]"); if (vak) vak.innerHTML = `<p class="leeg-zin">Zoeken lukt nu niet. Probeer het later opnieuw.</p>`; });
+}
+
+async function gevondenPagina(D, trackId) {
+  app.innerHTML = `<section class="blok breed"><p class="laden"><span></span>Credits en samples ophalen bij MusicBrainz…</p><p class="zacht" style="text-align:center">MusicBrainz krijgt hooguit één vraag per seconde, dus dit duurt een paar tellen.</p></section>`;
+  try {
+    const Z = await import("./mbzoek.js");
+    const track = await Z.itunesTrack(trackId);
+    if (!track) return nietGevonden();
+    const rec = await Z.mbOpname(Z.schoneTitel(track.trackName), Z.hoofdArtiest(track.artistName)).catch(() => null);
+    // staat dit nummer in onze eigen lijst? Dan daarheen: die pagina is nagekeken
+    const kernPerMb = Object.fromEntries(D.nummers.filter((n) => n.bronnen?.musicbrainz).map((n) => [n.bronnen.musicbrainz.split("/").pop(), n.slug]));
+    if (rec && kernPerMb[rec.id]) return naar(`/nummer/${kernPerMb[rec.id]}`, true);
+    if (!location.pathname.endsWith(trackId)) return; // intussen weggeklikt
+    const n = Z.maakNummer(track, rec, kernPerMb);
+    D.perSlug[n.slug] = n; // zodat speler en geluidsbeeld hem kennen
+    toonNummer(D, n);
+  } catch (e) {
+    app.innerHTML = `<section class="blok breed"><p class="leeg-zin">Dit nummer kan nu niet worden opgehaald. Probeer het later opnieuw.</p></section>`;
+  }
+}
+
 /* ---------- Kop: zoeken ---------- */
 
 function koppelZoeken() {
   const veld = document.getElementById("zoek"), lijst = document.getElementById("zoek-lijst"), melding = document.querySelector(".zoek-melding");
   let treffers = [], actief = -1;
   const sluit = () => { lijst.hidden = true; veld.setAttribute("aria-expanded", "false"); actief = -1; };
-  const kies = (n) => { veld.value = ""; sluit(); melding.textContent = ""; naar(`/nummer/${n.slug}`); };
+  const kies = (n) => { const q = veld.value.trim(); veld.value = ""; sluit(); melding.textContent = ""; naar(n.slug === "__alles" ? `/zoek?q=${encodeURIComponent(q)}` : `/nummer/${n.slug}`); };
   veld.addEventListener("input", async () => {
     const D = await data();
     const q = norm(veld.value.trim());
     melding.textContent = "";
     if (!q) return sluit();
-    treffers = D.nummers.filter((n) => norm(`${n.titel} ${n.artiest}`).includes(q)).slice(0, 8);
-    lijst.innerHTML = treffers.map((n, i) => `<li role="option" id="z-${i}" data-i="${i}">${esc(n.titel)} <span class="zacht">${esc(n.artiest)}</span></li>`).join("");
-    lijst.hidden = !treffers.length;
-    veld.setAttribute("aria-expanded", String(!!treffers.length));
-    if (!treffers.length) melding.textContent = "Dat nummer staat er nog niet in. Zoeken in alle nummers komt in een volgende stap.";
+    treffers = D.nummers.filter((n) => norm(`${n.titel} ${n.artiest}`).includes(q)).slice(0, 7);
+    // altijd als laatste: zoeken in alle nummers (via iTunes en MusicBrainz)
+    treffers.push({ slug: "__alles" });
+    lijst.innerHTML = treffers.map((n, i) => n.slug === "__alles"
+      ? `<li role="option" id="z-${i}" data-i="${i}" class="zoek-alles">Zoek “${esc(veld.value.trim())}” in alle nummers <span class="zacht">niet nagekeken</span></li>`
+      : `<li role="option" id="z-${i}" data-i="${i}">${esc(n.titel)} <span class="zacht">${esc(n.artiest)}</span></li>`).join("");
+    lijst.hidden = false;
+    veld.setAttribute("aria-expanded", "true");
   });
   veld.addEventListener("keydown", (e) => {
     if (e.key === "ArrowDown" || e.key === "ArrowUp") {
